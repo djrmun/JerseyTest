@@ -123,7 +123,7 @@ public class CustomerResource {
 
 	@GET
 	@Path("/test")
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
 	public ServiceOrderSearch test() {
 
 		ServiceOrderSearch sos = new ServiceOrderSearch();
