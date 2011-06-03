@@ -31,6 +31,7 @@ import com.akkineni.rest.domain.Customer;
 import com.akkineni.rest.util.StaxParserHelper;
 import com.akkineni.schema.so.ServiceOrderDTOType;
 import com.akkineni.schema.so.ServiceOrderSearch;
+import com.akkineni.schema.so.ServiceOrderSearch.ServiceOrderSearchList;
 import com.sun.syndication.feed.atom.Feed;
 
 @Path("/customers")
@@ -126,7 +127,7 @@ public class CustomerResource {
 	public ServiceOrderSearch test() {
 
 		ServiceOrderSearch sos = new ServiceOrderSearch();
-		com.akkineni.schema.so.ServiceOrderSearch.List list = new com.akkineni.schema.so.ServiceOrderSearch.List();
+		ServiceOrderSearchList list = new ServiceOrderSearchList();
 
 		for (int i = 0; i < 5; i++) {
 			ServiceOrderDTOType dto = new ServiceOrderDTOType();
@@ -139,7 +140,7 @@ public class CustomerResource {
 			list.getServiceOrderSearchDTO().add(dto);
 		}
 
-		sos.setList(list);
+		sos.setServiceOrderSearchList(list);
 		return sos;
 	}
 
