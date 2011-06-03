@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -22,10 +23,14 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Providers;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 import com.akkineni.rest.domain.Customer;
 import com.akkineni.rest.util.StaxParserHelper;
 import com.akkineni.schema.so.ServiceOrderDTOType;
+import com.akkineni.schema.so.ServiceOrderSearch;
 import com.sun.syndication.feed.atom.Feed;
 
 @Path("/customers")
@@ -115,11 +120,27 @@ public class CustomerResource {
 		current.setCountry(update.getCountry());
 	}
 
-	@POST
+	@GET
 	@Path("/test")
-	@Consumes(MediaType.APPLICATION_XML)
-	public void test(ServiceOrderDTOType serviceOrderDTO) {
-		System.out.println(serviceOrderDTO);
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public ServiceOrderSearch test() {
+
+		ServiceOrderSearch sos = new ServiceOrderSearch();
+		com.akkineni.schema.so.ServiceOrderSearch.List list = new com.akkineni.schema.so.ServiceOrderSearch.List();
+
+		for (int i = 0; i < 5; i++) {
+			ServiceOrderDTOType dto = new ServiceOrderDTOType();
+			dto.setCreationDate(getDate());
+			dto.setDescription("Service Order Description");
+			dto.setFlowableID(i);
+			dto.setOrderNumber("1234" + i);
+			dto.setVersion(1);
+
+			list.getServiceOrderSearchDTO().add(dto);
+		}
+
+		sos.setList(list);
+		return sos;
 	}
 
 	@GET
@@ -143,6 +164,15 @@ public class CustomerResource {
 		// entry.setContent(content);
 		// feed.getEntries().add(entry);
 		return null;
+	}
+
+	private static XMLGregorianCalendar getDate() {
+		try {
+			return DatatypeFactory.newInstance().newXMLGregorianCalendar(
+					new GregorianCalendar());
+		} catch (DatatypeConfigurationException e) {
+			throw new Error(e);
+		}
 	}
 
 }

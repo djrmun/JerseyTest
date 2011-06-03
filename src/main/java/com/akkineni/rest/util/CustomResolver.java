@@ -21,8 +21,7 @@ public class CustomResolver implements ContextResolver<JAXBContext> {
 		try {
 			this.customerCtx = JAXBContext.newInstance(Customer.class);
 			this.invoiceContext = JAXBContext
-					.newInstance("com.akkineni.schema.custom");
-
+					.newInstance("com.akkineni.schema.so");
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
@@ -35,9 +34,7 @@ public class CustomResolver implements ContextResolver<JAXBContext> {
 			ctx = this.customerCtx;
 		} else if (type.equals(ServiceOrderDTOType.class)) {
 			ctx = this.invoiceContext;
-		} else {
 		}
-
 		return ctx;
 	}
 }
