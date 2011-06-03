@@ -41,7 +41,6 @@ public class JaxbTest {
 					if (reader.getLocalName() == "InvoiceType") {
 						ServiceOrderDTOType invoice = (ServiceOrderDTOType) unmarshaller
 								.unmarshal(reader);
-
 						System.out.println(invoice);
 					}
 				}
