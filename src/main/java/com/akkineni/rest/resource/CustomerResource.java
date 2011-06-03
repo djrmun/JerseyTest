@@ -4,7 +4,6 @@ import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -24,14 +23,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Providers;
 
-import org.apache.abdera.model.Content;
-import org.apache.abdera.model.Entry;
-import org.apache.abdera.model.Feed;
-import org.apache.abdera.model.Link;
-
 import com.akkineni.rest.domain.Customer;
 import com.akkineni.rest.util.StaxParserHelper;
-import com.akkineni.schema.custom.InvoiceType;
+import com.akkineni.schema.so.ServiceOrderDTOType;
+import com.sun.syndication.feed.atom.Feed;
 
 @Path("/customers")
 public class CustomerResource {
@@ -123,10 +118,8 @@ public class CustomerResource {
 	@POST
 	@Path("/test")
 	@Consumes(MediaType.APPLICATION_XML)
-	public void test(InvoiceType[] invoice) {
-
-		System.out.println(invoice.length);
-
+	public void test(ServiceOrderDTOType serviceOrderDTO) {
+		System.out.println(serviceOrderDTO);
 	}
 
 	@GET

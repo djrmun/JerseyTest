@@ -7,7 +7,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
 import com.akkineni.rest.domain.Customer;
-import com.akkineni.schema.custom.InvoiceType;
+import com.akkineni.schema.so.ServiceOrderDTOType;
 
 @Provider
 @Produces("application/xml")
@@ -33,7 +33,7 @@ public class CustomResolver implements ContextResolver<JAXBContext> {
 		JAXBContext ctx = null;
 		if (type.equals(Customer.class)) {
 			ctx = this.customerCtx;
-		} else if (type.equals(InvoiceType.class)) {
+		} else if (type.equals(ServiceOrderDTOType.class)) {
 			ctx = this.invoiceContext;
 		} else {
 		}

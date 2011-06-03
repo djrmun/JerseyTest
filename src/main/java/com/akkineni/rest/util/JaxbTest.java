@@ -12,7 +12,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.events.XMLEvent;
 
-import com.akkineni.schema.custom.InvoiceType;
+import com.akkineni.schema.so.ServiceOrderDTOType;
 
 public class JaxbTest {
 
@@ -39,11 +39,10 @@ public class JaxbTest {
 				if (event == XMLEvent.START_ELEMENT) {
 					System.out.println(reader.getLocalName());
 					if (reader.getLocalName() == "InvoiceType") {
-						InvoiceType invoice = (InvoiceType) unmarshaller
+						ServiceOrderDTOType invoice = (ServiceOrderDTOType) unmarshaller
 								.unmarshal(reader);
 
-						System.out.println(invoice.getBooks().getBook().get(0)
-								.getName());
+						System.out.println(invoice);
 					}
 				}
 
