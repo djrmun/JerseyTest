@@ -11,8 +11,7 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.events.XMLEvent;
-
-import com.akkineni.schema.so.ServiceOrderDTOType;
+import com.akkineni.schema.so.ServiceOrderDTO;
 
 public class JaxbTest {
 
@@ -21,13 +20,10 @@ public class JaxbTest {
 			JAXBContext jaxbCtx = JAXBContext
 					.newInstance("com.akkineni.schema.custom");
 			Unmarshaller unmarshaller = jaxbCtx.createUnmarshaller();
-			// unmarshaller.unmarshal(new File("testInput.xml"));
 			XMLInputFactory factory = XMLInputFactory.newFactory();
-
 			XMLStreamReader reader = factory
 					.createXMLStreamReader(new FileInputStream(new File(
 							"src/main/webapp/xml/input.xml")));
-
 			while (reader.hasNext()) {
 				int event = reader.next();
 				System.out.println(event);
@@ -35,16 +31,14 @@ public class JaxbTest {
 					String str = reader.getText();
 					System.out.println(str);
 				}
-
 				if (event == XMLEvent.START_ELEMENT) {
 					System.out.println(reader.getLocalName());
 					if (reader.getLocalName() == "InvoiceType") {
-						ServiceOrderDTOType invoice = (ServiceOrderDTOType) unmarshaller
+						ServiceOrderDTO orderDto = (ServiceOrderDTO) unmarshaller
 								.unmarshal(reader);
-						System.out.println(invoice);
+						System.out.println(orderDto);
 					}
 				}
-
 			}
 		} catch (JAXBException e) {
 			e.printStackTrace();

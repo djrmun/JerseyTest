@@ -25,11 +25,12 @@ public class Main {
 	}
 
 	private static URI getBaseURI() {
-		return UriBuilder.fromUri("http://localhost/").port(getPort(9998))
+		return UriBuilder.fromUri("http://localhost/").port(getPort(8080))
 				.build();
 	}
 
-	public static final URI BASE_URI = getBaseURI();
+	public static final URI BASE_URI = UriBuilder.fromUri(
+			getBaseURI().toString() + "JerseyTest/rest/").build();
 
 	protected static HttpServer startServer() throws IOException {
 		final Map<String, String> initParams = new HashMap<String, String>();
@@ -44,7 +45,7 @@ public class Main {
 		System.out
 				.println(String
 						.format("Jersey app started with WADL available at "
-								+ "%sapplication.wadl\nTry out %scustomers\\echo \nHit enter to stop it...",
+								+ "%sapplication.wadl\nTry out %scustomers/echo \nHit enter to stop it...",
 								BASE_URI, BASE_URI));
 		System.in.read();
 		httpServer.stop();

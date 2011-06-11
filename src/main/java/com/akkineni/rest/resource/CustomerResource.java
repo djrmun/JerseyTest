@@ -1,6 +1,8 @@
 package com.akkineni.rest.resource;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -22,16 +24,19 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.StreamingOutput;
 import javax.ws.rs.ext.Providers;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
 import com.akkineni.rest.domain.Customer;
+import com.akkineni.rest.stax.ServiceOrderDTOStaxParser;
 import com.akkineni.rest.util.StaxParserHelper;
-import com.akkineni.schema.so.ServiceOrderDTOType;
+import com.akkineni.schema.so.ServiceOrderDTO;
 import com.akkineni.schema.so.ServiceOrderSearch;
-import com.akkineni.schema.so.ServiceOrderSearch.ServiceOrderSearchList;
 import com.sun.syndication.feed.atom.Feed;
 
 @Path("/customers")
@@ -122,26 +127,63 @@ public class CustomerResource {
 	}
 
 	@GET
-	@Path("/test")
-	@Produces({ MediaType.APPLICATION_JSON })
-	public ServiceOrderSearch test() {
+	@Path("/ServiceOrderSearch")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public ServiceOrderSearch ServiceOrderSearch() {
 
 		ServiceOrderSearch sos = new ServiceOrderSearch();
-		ServiceOrderSearchList list = new ServiceOrderSearchList();
 
-		for (int i = 0; i < 5; i++) {
-			ServiceOrderDTOType dto = new ServiceOrderDTOType();
+		for (int i = 0; i < 10; i++) {
+			ServiceOrderDTO dto = new ServiceOrderDTO();
 			dto.setCreationDate(getDate());
 			dto.setDescription("Service Order Description");
 			dto.setFlowableID(i);
 			dto.setOrderNumber("1234" + i);
 			dto.setVersion(1);
 
-			list.getServiceOrderSearchDTO().add(dto);
+			sos.getServiceOrderDTO().add(dto);
 		}
 
-		sos.setServiceOrderSearchList(list);
 		return sos;
+	}
+
+	@GET
+	@Path("/JsonStreamTest")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public StreamingOutput StreamTest() {
+
+		final ServiceOrderSearch sos = new ServiceOrderSearch();
+
+		for (int i = 0; i < 10; i++) {
+			ServiceOrderDTO dto = new ServiceOrderDTO();
+			dto.setCreationDate(getDate());
+			dto.setDescription("Service Order Description");
+			dto.setFlowableID(i);
+			dto.setOrderNumber("1234" + i);
+			dto.setVersion(1);
+			sos.getServiceOrderDTO().add(dto);
+		}
+
+		final ObjectMapper mapper = new ObjectMapper();
+
+		return new StreamingOutput() {
+			@Override
+			public void write(OutputStream output) throws IOException,
+					WebApplicationException {
+				output.write(mapper.writeValueAsBytes(sos));
+			}
+		};
+	}
+
+	@POST
+	@Path("/StaxParseTest")
+	@Consumes(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_XML)
+	public List<ServiceOrderDTO> StaxParseTest(InputStream is) {
+		ServiceOrderDTOStaxParser parser = new ServiceOrderDTOStaxParser();
+		List<ServiceOrderDTO> ServiceOrderDTOList = parser
+				.parseServiceOrderDTO(is);
+		return ServiceOrderDTOList;
 	}
 
 	@GET

@@ -7,20 +7,20 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
 import com.akkineni.rest.domain.Customer;
-import com.akkineni.schema.so.ServiceOrderDTOType;
+import com.akkineni.schema.so.ServiceOrderDTO;
 
 @Provider
 @Produces("application/xml")
 public class CustomResolver implements ContextResolver<JAXBContext> {
 
 	private JAXBContext customerCtx;
-	private JAXBContext invoiceContext;
+	private JAXBContext serviceOrderDtoType;
 
 	public CustomResolver() {
 		super();
 		try {
 			this.customerCtx = JAXBContext.newInstance(Customer.class);
-			this.invoiceContext = JAXBContext
+			this.serviceOrderDtoType = JAXBContext
 					.newInstance("com.akkineni.schema.so");
 		} catch (JAXBException e) {
 			e.printStackTrace();
@@ -32,8 +32,8 @@ public class CustomResolver implements ContextResolver<JAXBContext> {
 		JAXBContext ctx = null;
 		if (type.equals(Customer.class)) {
 			ctx = this.customerCtx;
-		} else if (type.equals(ServiceOrderDTOType.class)) {
-			ctx = this.invoiceContext;
+		} else if (type.equals(ServiceOrderDTO.class)) {
+			ctx = this.serviceOrderDtoType;
 		}
 		return ctx;
 	}
