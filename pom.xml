@@ -54,6 +54,35 @@
 			<artifactId>jersey-multipart</artifactId>
 			<version>${jersey-version}</version>
 		</dependency>
+		<!-- Atmosphere Jersey Module -->
+		<dependency>
+			<groupId>org.atmosphere</groupId>
+			<artifactId>atmosphere-jersey</artifactId>
+			<version>0.7.2</version>
+		</dependency>
+		<!-- Joda Time Library For handling ISO Date Times -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+		<!-- Log4j library for logging -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
 		<!-- Adding grizzly servlet as provided as we need them only to test the 
 			services, Grizzly wont be a part of the web-inf lib -->
 		<dependency>
@@ -80,11 +109,6 @@
 			<artifactId>junit</artifactId>
 			<version>4.8.2</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>1.6.2</version>
 		</dependency>
 	</dependencies>
 
