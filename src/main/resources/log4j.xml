@@ -41,6 +41,11 @@
 		<level value="DEBUG" />
 		<appender-ref ref="JerseyRestProtoLogFileAppender" />
 	</logger>
+	
+	<logger name="org.eclipse.jetty">
+		<level value="DEBUG" />
+		<appender-ref ref="JerseyRestProtoLogFileAppender" />
+	</logger>
 
 	<root>
 		<priority value="ERROR"></priority>
