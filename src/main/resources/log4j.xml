@@ -28,27 +28,27 @@
 	</logger>
 
 	<logger name="org.springframework">
-		<level value="DEBUG" />
+		<level value="INFO" />
 		<appender-ref ref="consoleAppender" />
 	</logger>
 
 	<logger name="com.sun.jersey">
-		<level value="DEBUG" />
+		<level value="INFO" />
 		<appender-ref ref="consoleAppender" />
 	</logger>
 
 	<logger name="org.atmosphere">
-		<level value="DEBUG" />
+		<level value="INFO" />
 		<appender-ref ref="consoleAppender" />
 	</logger>
 
 	<logger name="org.cometd">
-		<level value="DEBUG" />
+		<level value="INFO" />
 		<appender-ref ref="consoleAppender" />
 	</logger>
 
 	<logger name="org.eclipse.jetty">
-		<level value="DEBUG" />
+		<level value="INFO" />
 		<appender-ref ref="consoleAppender" />
 	</logger>
 

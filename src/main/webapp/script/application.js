@@ -50,12 +50,13 @@
             {
                 cometd.batch(function()
                 {
-                    cometd.subscribe('/hello', function(message)
+                    cometd.subscribe('/echo', function(message)
                     {
-                        $('#body').append('<div>Server Says: ' + message.data.greeting + '</div>');
+                        $('#body').append('<div>Server Says: ' + message.data.name + '</div>');
                     });
                     // Publish on a service channel since the message is for the server only
-                    cometd.publish('/service/hello', { name: 'World' });
+                    var randomnumber=Math.floor(Math.random()*100);
+                    cometd.publish('/echo', { name: 'World :'+randomnumber });
                 });
             }
         }
@@ -66,7 +67,7 @@
             cometd.disconnect(true);
         });
 
-        var cometURL = location.protocol + "//" + location.host + config.contextPath + "/cometd";
+        var cometURL = "http://localhost:8080/JerseyTest/cometd";
         cometd.configure({
             url: cometURL,
             logLevel: 'debug'

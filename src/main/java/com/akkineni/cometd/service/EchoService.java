@@ -26,8 +26,11 @@ public class EchoService extends AbstractService {
 
 	public void processEcho(ServerSession remote, ServerMessage.Mutable message) {
 		String channel = message.getChannel();
+		System.out.println(channel);
 		Object data = message.getData();
+		System.out.println(data);
 		remote.deliver(getServerSession(), channel, data, null);
+		// getBayeux().getChannel(channel).publish(getServerSession(), message);
 	}
 
 }
