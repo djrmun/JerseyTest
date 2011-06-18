@@ -3,8 +3,11 @@
  */
 package com.akkineni.cometd.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.cometd.bayeux.Message;
 import org.cometd.bayeux.server.BayeuxServer;
-import org.cometd.bayeux.server.ServerMessage;
 import org.cometd.bayeux.server.ServerSession;
 import org.cometd.server.AbstractService;
 
@@ -20,16 +23,16 @@ public class EchoService extends AbstractService {
 	 */
 	public EchoService(BayeuxServer bayeux) {
 		super(bayeux, "echo");
-		System.out.println(bayeux);
-		addService("/echo", "processEcho");
+		addService("/service/echo", "processEcho");
 	}
 
-	public void processEcho(ServerSession remote, ServerMessage.Mutable message) {
-		String channel = message.getChannel();
-		System.out.println(channel);
-		Object data = message.getData();
-		System.out.println(data);
-		remote.deliver(getServerSession(), channel, data, null);
+	public void processEcho(ServerSession remote, Message message) {
+		Map<String, Object> input = message.getDataAsMap();
+		String name = (String) input.get("name");
+
+		Map<String, Object> output = new HashMap<String, Object>();
+		output.put("greeting", "Hello, " + name);
+		remote.deliver(getServerSession(), "/echo", output, null);
 		// getBayeux().getChannel(channel).publish(getServerSession(), message);
 	}
 

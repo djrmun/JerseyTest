@@ -52,11 +52,11 @@
                 {
                     cometd.subscribe('/echo', function(message)
                     {
-                        $('#body').append('<div>Server Says: ' + message.data.name + '</div>');
+                        $('#body').append('<div>Server Says: ' + message.data.greeting + '</div>');
                     });
                     // Publish on a service channel since the message is for the server only
                     var randomnumber=Math.floor(Math.random()*100);
-                    cometd.publish('/echo', { name: 'World :'+randomnumber });
+                    cometd.publish('/service/echo', { name: 'World :'+randomnumber });
                 });
             }
         }
