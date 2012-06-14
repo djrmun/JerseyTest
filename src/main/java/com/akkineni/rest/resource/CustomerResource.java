@@ -30,13 +30,12 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.codehaus.jackson.map.ObjectMapper;
-
 import com.akkineni.rest.domain.Customer;
 import com.akkineni.rest.stax.ServiceOrderDTOStaxParser;
 import com.akkineni.rest.util.StaxParserHelper;
 import com.akkineni.schema.so.ServiceOrderDTO;
 import com.akkineni.schema.so.ServiceOrderSearch;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.syndication.feed.atom.Feed;
 
 @Path("/customers")

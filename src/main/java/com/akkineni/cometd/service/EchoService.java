@@ -7,9 +7,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.cometd.bayeux.server.BayeuxServer;
 import org.cometd.bayeux.server.ServerMessage;
 import org.cometd.bayeux.server.ServerSession;
@@ -18,7 +15,9 @@ import org.cometd.server.AbstractService;
 import com.akkineni.rest.util.DateTimeUtil;
 import com.akkineni.schema.so.ServiceOrderDTO;
 import com.akkineni.schema.so.ServiceOrderSearch;
-import com.sun.research.ws.wadl.Response;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author lokesh

@@ -11,18 +11,17 @@ import com.akkineni.rest.util.CustomResolver;
 public class AkkiRestApplicaton extends Application {
 
 	private Set<Object> singletons = new HashSet<Object>();
-	private Set<Class<?>> s = new HashSet<Class<?>>();
+	private Set<Class<?>> classSet = new HashSet<Class<?>>();
 
 	public AkkiRestApplicaton() {
 		super();
-		// singletons.add(new CustomerResource());
+		singletons.add(new CustomerResource());
 		singletons.add(new CustomResolver());
 	}
 
 	@Override
-	public Set<Class<?>> getClasses() {
-		s.add(CustomerResource.class);
-		return s;
+	public Set<Class<?>> getClasses() {		
+		return classSet;
 	}
 
 	@Override
