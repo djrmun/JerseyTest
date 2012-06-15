@@ -6,7 +6,7 @@
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>JerseyTest Maven Webapp</name>
-	<url>http://akkineni.org</url>
+	<url>http://vijayakkineni.org</url>
 
 	<properties>
 		<jersey-version>1.9.1</jersey-version>
