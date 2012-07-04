@@ -78,13 +78,10 @@ public class PubSub {
 		try {
 			bc = new Broadcastable(mapper.writeValueAsBytes(sos), topic);
 		} catch (JsonGenerationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return bc;
