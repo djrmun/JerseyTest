@@ -20,7 +20,7 @@ public class JaxbTest {
 			JAXBContext jaxbCtx = JAXBContext
 					.newInstance("com.akkineni.schema.custom");
 			Unmarshaller unmarshaller = jaxbCtx.createUnmarshaller();
-			XMLInputFactory factory = XMLInputFactory.newFactory();
+			XMLInputFactory factory = XMLInputFactory.newInstance();
 			XMLStreamReader reader = factory
 					.createXMLStreamReader(new FileInputStream(new File(
 							"src/main/webapp/xml/input.xml")));
