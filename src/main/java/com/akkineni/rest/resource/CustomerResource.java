@@ -3,6 +3,8 @@ package com.akkineni.rest.resource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -31,11 +33,13 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import com.akkineni.rest.domain.Customer;
+import com.akkineni.rest.domain.User;
 import com.akkineni.rest.stax.ServiceOrderDTOStaxParser;
 import com.akkineni.rest.util.StaxParserHelper;
 import com.akkineni.schema.so.ServiceOrderDTO;
 import com.akkineni.schema.so.ServiceOrderSearch;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.sun.syndication.feed.atom.Feed;
 
 @Path("/customers")
@@ -183,6 +187,68 @@ public class CustomerResource {
 		List<ServiceOrderDTO> ServiceOrderDTOList = parser
 				.parseServiceOrderDTO(is);
 		return ServiceOrderDTOList;
+	}
+
+	@GET
+	@Path("/UserSearch")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public StreamingOutput UserSearch() {
+
+		final List<User> users = new ArrayList<User>();
+
+		for (int i = 0; i < 10; i++) {
+			User dto = new User();
+			dto.setFname("Vijay");
+			dto.setLname("Akkineni");
+			dto.setAge(20);
+			users.add(dto);
+		}
+
+		return new StreamingOutput() {
+			public void write(OutputStream output) throws IOException,
+					WebApplicationException {
+				try {
+					ObjectMapper jacksonJsonMapper = new ObjectMapper();
+					jacksonJsonMapper.writeValue(output, users);
+				} catch (Exception e) {
+					throw new WebApplicationException(e);
+				}
+			}
+		};
+
+	}
+
+	@GET
+	@Path("/GsonUserSearch")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public StreamingOutput GsonUserSearch() {
+
+		final List<User> users = new ArrayList<User>();
+
+		for (int i = 0; i < 10; i++) {
+			User dto = new User();
+			dto.setFname("Vijay");
+			dto.setLname("Akkineni");
+			dto.setAge(20);
+			users.add(dto);
+		}
+
+		return new StreamingOutput() {
+			public void write(OutputStream output) throws IOException,
+					WebApplicationException {
+				try {
+					Gson gson = new Gson();
+					String json = gson.toJson(users);
+					OutputStreamWriter osw = new OutputStreamWriter(output,
+							"UTF-8");
+					osw.write(json);
+					osw.close();
+				} catch (Exception e) {
+					throw new WebApplicationException(e);
+				}
+			}
+		};
+
 	}
 
 	@GET

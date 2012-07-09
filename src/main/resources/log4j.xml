@@ -33,7 +33,7 @@
 	</logger>
 
 	<logger name="com.sun.jersey">
-		<level value="INFO" />
+		<level value="DEBUG" />
 		<appender-ref ref="consoleAppender" />
 	</logger>
 
