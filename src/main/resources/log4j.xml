@@ -32,23 +32,13 @@
 		<appender-ref ref="consoleAppender" />
 	</logger>
 
-	<logger name="com.sun.jersey">
-		<level value="DEBUG" />
-		<appender-ref ref="consoleAppender" />
-	</logger>
-
-	<logger name="org.atmosphere">
-		<level value="INFO" />
-		<appender-ref ref="consoleAppender" />
-	</logger>
-
-	<logger name="org.cometd">
+	<logger name="org.jboss.resteasy">
 		<level value="INFO" />
 		<appender-ref ref="consoleAppender" />
 	</logger>
 
 	<logger name="org.eclipse.jetty">
-		<level value="INFO" />
+		<level value="ERROR" />
 		<appender-ref ref="consoleAppender" />
 	</logger>
 

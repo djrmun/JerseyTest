@@ -1,5 +1,8 @@
 package com.akkineni.rest.resource;
 
+import org.codehaus.jackson.map.ObjectMapper;
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -38,9 +41,6 @@ import com.akkineni.rest.stax.ServiceOrderDTOStaxParser;
 import com.akkineni.rest.util.StaxParserHelper;
 import com.akkineni.schema.so.ServiceOrderDTO;
 import com.akkineni.schema.so.ServiceOrderSearch;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.sun.syndication.feed.atom.Feed;
 
 @Path("/customers")
 public class CustomerResource {
@@ -54,6 +54,11 @@ public class CustomerResource {
 	@Context
 	Providers providers;
 
+    public CustomerResource(){
+        super();
+        LOGGER.info("Constructed CustomerResource");
+    }
+
 	@GET
 	@Path("/echo")
 	@Produces("text/plain")
@@ -66,10 +71,19 @@ public class CustomerResource {
 	@Path("{id}")
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Customer getCustomer(@PathParam("id") int id) {
-		final Customer customer = customerDB.get(id);
+		Customer customer = customerDB.get(id);
 		if (customer == null) {
-			throw new WebApplicationException(
-					Response.Status.SERVICE_UNAVAILABLE);
+            customer = new Customer();
+            customer.setCity("Atlanta");
+            customer.setCountry("USA");
+            customer.setFirstName("Vijay");
+            customer.setLastName("Akkineni");
+            customer.setState("Georgia");
+            customer.setZip("30342");
+            customer.setStreet("5501 Glenridge Dr NE");
+            customer.setId(1);
+//			throw new WebApplicationException(
+//					Response.Status.SERVICE_UNAVAILABLE);
 		}
 		return customer;
 	}
@@ -80,6 +94,7 @@ public class CustomerResource {
 	public List<Customer> getCustomerList() {
 		ArrayList<Customer> customerList = new ArrayList<Customer>();
 		for (int i : customerDB.keySet()) {
+            LOGGER.info("Size fo the customer DB : "+customerDB.size());
 			final Customer customer = customerDB.get(i);
 			customerList.add(customer);
 		}
@@ -97,6 +112,7 @@ public class CustomerResource {
 		customer.setId(idCounter.incrementAndGet());
 		customerDB.put(customer.getId(), customer);
 		System.out.println("Created customer " + customer.getId());
+        LOGGER.info("Create Size fo the customer DB : "+customerDB.size());
 		return Response.created(URI.create("/customers/" + customer.getId()))
 				.build();
 	}
@@ -251,28 +267,30 @@ public class CustomerResource {
 
 	}
 
+    /*
 	@GET
 	@Path("feed")
 	@Produces("application/atom+xml")
 	public Feed getFeed() throws URISyntaxException {
-		// Feed feed = new Feed();
-		// feed.setId(new URI("http://example.com/42"));
-		// feed.setTitle("My Feed");
-		// feed.setUpdated(new Date());
-		// Link link = new Link();
-		// link.setHref(new URI("http://localhost"));
-		// link.setRel("edit");
-		// feed.getLinks().add(link);
-		// feed.getAuthors().add(new Person("Bill Burke"));
-		// Entry entry = new Entry();
-		// entry.setTitle("Hello World");
-		// Content content = new Content();
-		// content.setType(MediaType.TEXT_HTML_TYPE);
-		// content.setText("Nothing much");
-		// entry.setContent(content);
-		// feed.getEntries().add(entry);
+		Feed feed = new Feed();
+		feed.setId(new URI("http://example.com/42"));
+		feed.setTitle("My Feed");
+		feed.setUpdated(new Date());
+		Link link = new Link();
+		link.setHref(new URI("http://localhost"));
+		link.setRel("edit");
+		feed.getLinks().add(link);
+		feed.getAuthors().add(new Person("Bill Burke"));
+		Entry entry = new Entry();
+		entry.setTitle("Hello World");
+		Content content = new Content();
+		content.setType(MediaType.TEXT_HTML_TYPE);
+		content.setText("Nothing much");
+		entry.setContent(content);
+		feed.getEntries().add(entry);
 		return null;
 	}
+	*/
 
 	private static XMLGregorianCalendar getDate() {
 		try {
