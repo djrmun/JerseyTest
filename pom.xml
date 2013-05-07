@@ -138,7 +138,7 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.0.2.v20130417</version>
 				<configuration>
-					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<scanIntervalSeconds>5</scanIntervalSeconds>
 					<webAppConfig>
 						<contextPath>/JerseyTest</contextPath>
 					</webAppConfig>

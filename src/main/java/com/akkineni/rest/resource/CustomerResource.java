@@ -10,10 +10,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
@@ -41,6 +38,8 @@ import com.akkineni.rest.stax.ServiceOrderDTOStaxParser;
 import com.akkineni.rest.util.StaxParserHelper;
 import com.akkineni.schema.so.ServiceOrderDTO;
 import com.akkineni.schema.so.ServiceOrderSearch;
+import org.jboss.resteasy.annotations.GZIP;
+import org.jboss.resteasy.plugins.providers.atom.*;
 
 @Path("/customers")
 public class CustomerResource {
@@ -82,8 +81,8 @@ public class CustomerResource {
             customer.setZip("30342");
             customer.setStreet("5501 Glenridge Dr NE");
             customer.setId(1);
-//			throw new WebApplicationException(
-//					Response.Status.SERVICE_UNAVAILABLE);
+			throw new WebApplicationException(
+					Response.Status.NOT_FOUND);
 		}
 		return customer;
 	}
@@ -208,11 +207,12 @@ public class CustomerResource {
 	@GET
 	@Path("/UserSearch")
 	@Produces({ MediaType.APPLICATION_JSON })
+    @GZIP
 	public StreamingOutput UserSearch() {
 
 		final List<User> users = new ArrayList<User>();
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 1000; i++) {
 			User dto = new User();
 			dto.setFname("Vijay");
 			dto.setLname("Akkineni");
@@ -237,11 +237,12 @@ public class CustomerResource {
 	@GET
 	@Path("/GsonUserSearch")
 	@Produces({ MediaType.APPLICATION_JSON })
+    @GZIP
 	public StreamingOutput GsonUserSearch() {
 
 		final List<User> users = new ArrayList<User>();
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 1000; i++) {
 			User dto = new User();
 			dto.setFname("Vijay");
 			dto.setLname("Akkineni");
@@ -267,7 +268,7 @@ public class CustomerResource {
 
 	}
 
-    /*
+
 	@GET
 	@Path("feed")
 	@Produces("application/atom+xml")
@@ -288,9 +289,8 @@ public class CustomerResource {
 		content.setText("Nothing much");
 		entry.setContent(content);
 		feed.getEntries().add(entry);
-		return null;
+		return feed;
 	}
-	*/
 
 	private static XMLGregorianCalendar getDate() {
 		try {
