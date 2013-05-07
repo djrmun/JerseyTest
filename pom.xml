@@ -10,24 +10,30 @@
 
 	<dependencies>
 
-        <dependency>
-            <groupId>com.akkineni.schema</groupId>
-            <artifactId>JaxbTypes</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
+		<dependency>
+			<groupId>com.akkineni.schema</groupId>
+			<artifactId>JaxbTypes</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
 
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.2</version>
-        </dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.2</version>
+		</dependency>
 
-        <!-- Google Gson Library -->
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.2.3</version>
-        </dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+
+		<!-- Google Gson Library -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.3</version>
+		</dependency>
 
 		<!-- core library -->
 		<dependency>
@@ -41,37 +47,32 @@
 			<artifactId>resteasy-jaxb-provider</artifactId>
 			<version>3.0-beta-4</version>
 		</dependency>
-        <!-- Ruby YAML support -->
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-yaml-provider</artifactId>
-            <version>3.0-beta-4</version>
-        </dependency>
-        <!-- Atom support -->
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-atom-provider</artifactId>
-            <version>3.0-beta-4</version>
-        </dependency>
-        <!-- CDI Support
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-cdi</artifactId>
-            <version>3.0-beta-4</version>
-        </dependency>
-        -->
-        <!-- Jackson support -->
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jackson-provider</artifactId>
-            <version>3.0-beta-4</version>
-        </dependency>
-        <!-- Jackson support -->
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jsapi</artifactId>
-            <version>3.0-beta-4</version>
-        </dependency>
+		<!-- Ruby YAML support -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-yaml-provider</artifactId>
+			<version>3.0-beta-4</version>
+		</dependency>
+		<!-- Atom support -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-atom-provider</artifactId>
+			<version>3.0-beta-4</version>
+		</dependency>
+		<!-- CDI Support <dependency> <groupId>org.jboss.resteasy</groupId> <artifactId>resteasy-cdi</artifactId> 
+			<version>3.0-beta-4</version> </dependency> -->
+		<!-- Jackson support -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson-provider</artifactId>
+			<version>3.0-beta-4</version>
+		</dependency>
+		<!-- Jackson support -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jsapi</artifactId>
+			<version>3.0-beta-4</version>
+		</dependency>
 		<!-- multipart/form-data and multipart/mixed support -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
@@ -90,34 +91,34 @@
 			<artifactId>resteasy-spring</artifactId>
 			<version>3.0-beta-4</version>
 		</dependency>
-        <!-- Asynchronous HTTP support with Servlet 3.0  -->
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>async-http-servlet-3.0</artifactId>
-            <version>3.0-beta-4</version>
-        </dependency>
-        <!-- Client library -->
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-client</artifactId>
-            <version>3.0-beta-4</version>
-        </dependency>
-        <!-- Resteasy Links -->
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-links</artifactId>
-            <version>3.0-beta-4</version>
-        </dependency>
+		<!-- Asynchronous HTTP support with Servlet 3.0 -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>async-http-servlet-3.0</artifactId>
+			<version>3.0-beta-4</version>
+		</dependency>
+		<!-- Client library -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-client</artifactId>
+			<version>3.0-beta-4</version>
+		</dependency>
+		<!-- Resteasy Links -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-links</artifactId>
+			<version>3.0-beta-4</version>
+		</dependency>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>3.0-alpha-1</version>
-            <scope>provided</scope>
-        </dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>3.0-alpha-1</version>
+			<scope>provided</scope>
+		</dependency>
 
 
-    </dependencies>
+	</dependencies>
 	<build>
 		<finalName>JerseyTest</finalName>
 		<plugins>
@@ -125,18 +126,18 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-                    <verbose>true</verbose>
-                    <fork>true</fork>
-                    <meminitial>128m</meminitial>
-                    <maxmem>512m</maxmem>
+					<verbose>true</verbose>
+					<fork>true</fork>
+					<meminitial>128m</meminitial>
+					<maxmem>512m</maxmem>
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
 			</plugin>
 			<plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.0.2.v20130417</version>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.0.2.v20130417</version>
 				<configuration>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
 					<webAppConfig>
@@ -147,11 +148,11 @@
 		</plugins>
 	</build>
 
-	<repositories>		
-        <repository>
-            <id>jboss</id>
-            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-        </repository>
+	<repositories>
+		<repository>
+			<id>jboss</id>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>
 	</repositories>
 
 </project>
