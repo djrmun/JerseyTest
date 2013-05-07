@@ -1,16 +1,16 @@
 package com.akkineni.rest.resource;
 
-import org.codehaus.jackson.map.ObjectMapper;
-import com.google.gson.Gson;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
@@ -32,14 +32,21 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.codehaus.jackson.map.ObjectMapper;
+import org.jboss.resteasy.annotations.GZIP;
+import org.jboss.resteasy.plugins.providers.atom.Content;
+import org.jboss.resteasy.plugins.providers.atom.Entry;
+import org.jboss.resteasy.plugins.providers.atom.Feed;
+import org.jboss.resteasy.plugins.providers.atom.Link;
+import org.jboss.resteasy.plugins.providers.atom.Person;
+
 import com.akkineni.rest.domain.Customer;
 import com.akkineni.rest.domain.User;
 import com.akkineni.rest.stax.ServiceOrderDTOStaxParser;
 import com.akkineni.rest.util.StaxParserHelper;
 import com.akkineni.schema.so.ServiceOrderDTO;
 import com.akkineni.schema.so.ServiceOrderSearch;
-import org.jboss.resteasy.annotations.GZIP;
-import org.jboss.resteasy.plugins.providers.atom.*;
+import com.google.gson.Gson;
 
 @Path("/customers")
 public class CustomerResource {
@@ -53,10 +60,10 @@ public class CustomerResource {
 	@Context
 	Providers providers;
 
-    public CustomerResource(){
-        super();
-        LOGGER.info("Constructed CustomerResource");
-    }
+	public CustomerResource() {
+		super();
+		LOGGER.info("Constructed CustomerResource");
+	}
 
 	@GET
 	@Path("/echo")
@@ -72,17 +79,17 @@ public class CustomerResource {
 	public Customer getCustomer(@PathParam("id") int id) {
 		Customer customer = customerDB.get(id);
 		if (customer == null) {
-            customer = new Customer();
-            customer.setCity("Atlanta");
-            customer.setCountry("USA");
-            customer.setFirstName("Vijay");
-            customer.setLastName("Akkineni");
-            customer.setState("Georgia");
-            customer.setZip("30342");
-            customer.setStreet("5501 Glenridge Dr NE");
-            customer.setId(1);
-			throw new WebApplicationException(
-					Response.Status.NOT_FOUND);
+			customer = new Customer();
+			customer.setCity("Atlanta");
+			customer.setCountry("USA");
+			customer.setFirstName("Vijay");
+			customer.setLastName("Akkineni");
+			customer.setState("Georgia");
+			customer.setZip("30342");
+			customer.setStreet("5501 Glenridge Dr NE");
+			customer.setId(1);
+			// throw new WebApplicationException(
+			// Response.Status.NOT_FOUND);
 		}
 		return customer;
 	}
@@ -90,10 +97,11 @@ public class CustomerResource {
 	@GET
 	@Path("/list")
 	@Produces("application/xml")
+	@GZIP
 	public List<Customer> getCustomerList() {
 		ArrayList<Customer> customerList = new ArrayList<Customer>();
 		for (int i : customerDB.keySet()) {
-            LOGGER.info("Size fo the customer DB : "+customerDB.size());
+			LOGGER.info("Size fo the customer DB : " + customerDB.size());
 			final Customer customer = customerDB.get(i);
 			customerList.add(customer);
 		}
@@ -108,10 +116,11 @@ public class CustomerResource {
 	@Consumes("application/xml")
 	public Response createCustomer(Customer customer) {
 		// Customer customer = readDOMParser(is);
-		customer.setId(idCounter.incrementAndGet());
-		customerDB.put(customer.getId(), customer);
-		System.out.println("Created customer " + customer.getId());
-        LOGGER.info("Create Size fo the customer DB : "+customerDB.size());
+		Integer id = idCounter.incrementAndGet();
+		customer.setId(id);
+		customerDB.put(id, customer);
+		System.out.println("Created customer " + customer.getId() + " " + id);
+		LOGGER.info("Create Size fo the customer DB : " + customerDB.size());
 		return Response.created(URI.create("/customers/" + customer.getId()))
 				.build();
 	}
@@ -207,7 +216,7 @@ public class CustomerResource {
 	@GET
 	@Path("/UserSearch")
 	@Produces({ MediaType.APPLICATION_JSON })
-    @GZIP
+	@GZIP
 	public StreamingOutput UserSearch() {
 
 		final List<User> users = new ArrayList<User>();
@@ -237,7 +246,7 @@ public class CustomerResource {
 	@GET
 	@Path("/GsonUserSearch")
 	@Produces({ MediaType.APPLICATION_JSON })
-    @GZIP
+	@GZIP
 	public StreamingOutput GsonUserSearch() {
 
 		final List<User> users = new ArrayList<User>();
@@ -267,7 +276,6 @@ public class CustomerResource {
 		};
 
 	}
-
 
 	@GET
 	@Path("feed")
