@@ -7,25 +7,23 @@ import java.util.logging.Logger;
 import javax.ws.rs.core.Application;
 
 import com.akkineni.rest.resource.CustomerResource;
-import com.akkineni.rest.util.CustomResolver;
 
 public class AkkiRestApplicaton extends Application {
 
-    private final Logger LOGGER = Logger.getLogger(AkkiRestApplicaton.class
-            .getName());
+	private final Logger LOGGER = Logger.getLogger(AkkiRestApplicaton.class
+			.getName());
 
 	private Set<Object> singletons = new HashSet<Object>();
 	private Set<Class<?>> classSet = new HashSet<Class<?>>();
 
 	public AkkiRestApplicaton() {
 		super();
-        LOGGER.info("created AKKIRESTAPPLICATION");
+		LOGGER.info("created AKKIRESTAPPLICATION");
 		singletons.add(new CustomerResource());
-		singletons.add(new CustomResolver());
 	}
 
 	@Override
-	public Set<Class<?>> getClasses() {		
+	public Set<Class<?>> getClasses() {
 		return classSet;
 	}
 

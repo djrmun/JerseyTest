@@ -34,9 +34,9 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import com.akkineni.rest.service.UserService;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.jboss.resteasy.annotations.GZIP;
+import org.jboss.resteasy.annotations.providers.jaxb.json.BadgerFish;
 import org.jboss.resteasy.plugins.providers.atom.Content;
 import org.jboss.resteasy.plugins.providers.atom.Entry;
 import org.jboss.resteasy.plugins.providers.atom.Feed;
@@ -45,6 +45,7 @@ import org.jboss.resteasy.plugins.providers.atom.Person;
 
 import com.akkineni.rest.domain.Customer;
 import com.akkineni.rest.domain.User;
+import com.akkineni.rest.service.UserService;
 import com.akkineni.rest.stax.ServiceOrderDTOStaxParser;
 import com.akkineni.rest.util.StaxParserHelper;
 import com.akkineni.schema.so.ServiceOrderDTO;
@@ -60,7 +61,7 @@ public class CustomerResource {
 
 	private final Logger LOGGER = Logger.getLogger(CustomerResource.class
 			.getName());
-
+	
 	@Context
 	Providers providers;
 
@@ -181,6 +182,7 @@ public class CustomerResource {
 		return sos;
 	}
 
+	@BadgerFish
 	@GET
 	@Path("/JsonStreamTest")
 	@Produces({ MediaType.APPLICATION_JSON })
