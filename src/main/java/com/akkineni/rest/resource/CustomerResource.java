@@ -15,6 +15,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -32,6 +34,7 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import com.akkineni.rest.service.UserService;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.jboss.resteasy.annotations.GZIP;
 import org.jboss.resteasy.plugins.providers.atom.Content;
@@ -48,6 +51,7 @@ import com.akkineni.schema.so.ServiceOrderDTO;
 import com.akkineni.schema.so.ServiceOrderSearch;
 import com.google.gson.Gson;
 
+@Named
 @Path("/customers")
 public class CustomerResource {
 
@@ -59,6 +63,9 @@ public class CustomerResource {
 
 	@Context
 	Providers providers;
+
+    @Inject
+    UserService userService;
 
 	public CustomerResource() {
 		super();
@@ -219,15 +226,7 @@ public class CustomerResource {
 	@GZIP
 	public StreamingOutput UserSearch() {
 
-		final List<User> users = new ArrayList<User>();
-
-		for (int i = 0; i < 1000; i++) {
-			User dto = new User();
-			dto.setFname("Vijay");
-			dto.setLname("Akkineni");
-			dto.setAge(20);
-			users.add(dto);
-		}
+		final List<User> users = userService.getUsers();
 
 		return new StreamingOutput() {
 			public void write(OutputStream output) throws IOException,
@@ -249,15 +248,7 @@ public class CustomerResource {
 	@GZIP
 	public StreamingOutput GsonUserSearch() {
 
-		final List<User> users = new ArrayList<User>();
-
-		for (int i = 0; i < 1000; i++) {
-			User dto = new User();
-			dto.setFname("Vijay");
-			dto.setLname("Akkineni");
-			dto.setAge(20);
-			users.add(dto);
-		}
+		final List<User> users = userService.getUsers();
 
 		return new StreamingOutput() {
 			public void write(OutputStream output) throws IOException,

@@ -5,29 +5,26 @@
          version="3.0">
 
     <context-param>
-        <param-name>resteasy.media.type.mappings</param-name>
-        <param-value>html : text/html, json : application/json, xml : application/xml</param-value>
-    </context-param>
-    <context-param>
-        <param-name>resteasy.language.mappings</param-name>
-        <param-value>en : en-US</param-value>
-    </context-param>
-    <context-param>
         <param-name>resteasy.servlet.mapping.prefix</param-name>
         <param-value>/rest</param-value>
     </context-param>
+    
     <context-param>
-        <param-name>resteasy.use.builtin.providers</param-name>
-        <param-value>true</param-value>
-    </context-param>   
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:appContext.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>org.jboss.resteasy.plugins.spring.SpringContextLoaderListener</listener-class>
+    </listener>
 
     <servlet>
 		<servlet-name>RestEasy</servlet-name>
 		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
-        <init-param>
-            <param-name>javax.ws.rs.Application</param-name>
-            <param-value>com.akkineni.rest.application.AkkiRestApplicaton</param-value>
-        </init-param>
 	</servlet>
 
 	<servlet-mapping>
