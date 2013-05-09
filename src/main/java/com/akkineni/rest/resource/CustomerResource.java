@@ -34,7 +34,6 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.jboss.resteasy.annotations.GZIP;
 import org.jboss.resteasy.annotations.providers.jaxb.json.BadgerFish;
 import org.jboss.resteasy.plugins.providers.atom.Content;
@@ -50,6 +49,7 @@ import com.akkineni.rest.stax.ServiceOrderDTOStaxParser;
 import com.akkineni.rest.util.StaxParserHelper;
 import com.akkineni.schema.so.ServiceOrderDTO;
 import com.akkineni.schema.so.ServiceOrderSearch;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
 @Named
