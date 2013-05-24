@@ -1,9 +1,15 @@
 package com.akkineni.rest.resource;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -124,6 +130,36 @@ public class LdapResource {
 			LOGGER.error("Exception creating user ID: " + uid, e);
 			throw new WebApplicationException("Exception updating user!",
 					Response.Status.EXPECTATION_FAILED);
+		}
+	}
+
+	@POST
+	@Path("/updateWorkGroupInBulk")
+	public void updateUsersWorkGroupInBulk(InputStream input) {
+		Map<String, String> userWorkGroupMap = new HashMap<String, String>();
+		BufferedReader br = new BufferedReader(new InputStreamReader(input));
+		String strLine;
+		try {
+			while ((strLine = br.readLine()) != null) {
+				StringTokenizer st = new StringTokenizer(strLine);
+				while (st.hasMoreTokens()) {
+					String uid = st.nextToken().trim().toLowerCase();
+					String workgroup = st.nextToken().trim();
+					userWorkGroupMap.put(uid, workgroup);
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		for (String key : userWorkGroupMap.keySet()) {
+			try {
+				userService.createUserFromWebPhone(key,
+						userWorkGroupMap.get(key));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
