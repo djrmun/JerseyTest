@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -41,6 +40,8 @@ import org.jboss.resteasy.plugins.providers.atom.Entry;
 import org.jboss.resteasy.plugins.providers.atom.Feed;
 import org.jboss.resteasy.plugins.providers.atom.Link;
 import org.jboss.resteasy.plugins.providers.atom.Person;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.akkineni.rest.domain.Customer;
 import com.akkineni.rest.domain.User;
@@ -59,14 +60,14 @@ public class CustomerResource {
 	private Map<Integer, Customer> customerDB = new ConcurrentHashMap<Integer, Customer>();
 	private AtomicInteger idCounter = new AtomicInteger();
 
-	private final Logger LOGGER = Logger.getLogger(CustomerResource.class
-			.getName());
-	
+	private final Logger LOGGER = LoggerFactory
+			.getLogger(CustomerResource.class.getName());
+
 	@Context
 	Providers providers;
 
-    @Inject
-    UserService userService;
+	@Inject
+	UserService userService;
 
 	public CustomerResource() {
 		super();
@@ -77,7 +78,7 @@ public class CustomerResource {
 	@Path("/echo")
 	@Produces("text/plain")
 	public String getClichedMessage() {
-		LOGGER.fine("getClichedMessage");
+		LOGGER.debug("getClichedMessage");
 		return "Hello World";
 	}
 
