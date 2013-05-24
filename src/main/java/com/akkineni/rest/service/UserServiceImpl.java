@@ -46,8 +46,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void updateWorkGroupForUser(String uid, String workgroup) {
+	public User updateWorkGroupForUser(String uid, String workgroup) throws Exception {
 		userDao.updateWorkGroup(uid, workgroup);
+		return userDao.getUserByUid(uid);
 
 	}
 

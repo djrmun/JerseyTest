@@ -17,5 +17,5 @@ public interface UserService {
 
 	void createUserFromWebPhone(String uid, String workgroup);
 	
-	void updateWorkGroupForUser(String uid, String workgroup);
+	User updateWorkGroupForUser(String uid, String workgroup) throws Exception;
 }

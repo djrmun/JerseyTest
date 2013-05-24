@@ -18,20 +18,23 @@
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(HOST= flpd128.ffdc.sbc.com)(PROTOCOL=tcp)(PORT=1521))(CONNECT_DATA=(SID=ofar200)))" />
 		<property name="username" value="m44842" />
 		<property name="password" value="lsbbnm$4u" />
-		<property name="idleConnectionTestPeriod" value="60" />
-		<property name="idleMaxAge" value="240" />
+		<property name="idleMaxAgeInMinutes" value="240" />
 		<property name="maxConnectionsPerPartition" value="30" />
 		<property name="minConnectionsPerPartition" value="10" />
 		<property name="partitionCount" value="3" />
 		<property name="acquireIncrement" value="5" />
 		<property name="statementsCacheSize" value="100" />
-		<property name="releaseHelperThreads" value="3" />
 	</bean>
+	
+	<bean id="contextSource" class="org.springframework.ldap.pool.factory.PoolingContextSource">
+      <property name="contextSource" ref="contextSourceTarget" />
+   </bean>
 
-	<bean id="contextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+	<bean id="contextSourceTarget" class="org.springframework.ldap.core.support.LdapContextSource">
 		<property name="url" value="ldap://nmslsaldap.snt.bst.bls.com:8393" />
 		<property name="userDn" value="cn=Directory Manager" />
 		<property name="password" value="dmanager" />
+		<property name="pooled" value="false"/>
 	</bean>
 
 	<bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">

@@ -114,16 +114,15 @@ public class LdapResource {
 
 	@PUT
 	@Path("/user/{uid}/updateWithWorkgroup/{workgroup}")
-	@Produces({ MediaType.APPLICATION_JSON })
-	public boolean updateUserWithWorkGroup(@PathParam("uid") String uid,
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public User updateUserWithWorkGroup(@PathParam("uid") String uid,
 			@PathParam("workgroup") String workgroup) {
 
 		try {
-			userService.updateWorkGroupForUser(uid, workgroup);
-			return true;
+			return userService.updateWorkGroupForUser(uid, workgroup);
 		} catch (Exception e) {
 			LOGGER.error("Exception creating user ID: " + uid, e);
-			throw new WebApplicationException(
+			throw new WebApplicationException("Exception updating user!",
 					Response.Status.EXPECTATION_FAILED);
 		}
 	}
