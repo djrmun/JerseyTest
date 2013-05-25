@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans.xsd
          http://www.springframework.org/schema/aop
          http://www.springframework.org/schema/aop/spring-aop.xsd
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.akkineni" />
+	<context:component-scan base-package="com.akkineni" />
+
+	<!-- BoneCP configuration -->
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(HOST= flpd128.ffdc.sbc.com)(PROTOCOL=tcp)(PORT=1521))(CONNECT_DATA=(SID=ofar200)))" />
+		<property name="username" value="m44842" />
+		<property name="password" value="lsbbnm$4u" />
+		<property name="idleMaxAgeInMinutes" value="240" />
+		<property name="maxConnectionsPerPartition" value="30" />
+		<property name="minConnectionsPerPartition" value="10" />
+		<property name="partitionCount" value="3" />
+		<property name="acquireIncrement" value="5" />
+		<property name="statementsCacheSize" value="100" />
+	</bean>
+	
+	<bean id="contextSource" class="org.springframework.ldap.pool.factory.PoolingContextSource">
+      <property name="contextSource" ref="contextSourceTarget" />
+   </bean>
+
+	<bean id="contextSourceTarget" class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="url" value="ldap://nmslsaldap.snt.bst.bls.com:8393" />
+		<property name="userDn" value="cn=Directory Manager" />
+		<property name="password" value="dmanager" />
+		<property name="pooled" value="false"/>
+	</bean>
+
+	<bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+		<constructor-arg ref="contextSource" />
+	</bean>
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
 </beans>

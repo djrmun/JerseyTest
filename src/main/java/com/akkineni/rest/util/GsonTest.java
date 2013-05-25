@@ -20,9 +20,9 @@ public class GsonTest {
 
 		for (int i = 0; i < 10; i++) {
 			User dto = new User();
-			dto.setFname("Vijay");
-			dto.setLname("Akkineni");
-			dto.setAge(20);
+			dto.setCn("Vijay");
+			dto.setSn("Akkineni");
+			dto.setCuaEntityIsAdmin(false);
 			users.add(dto);
 		}
 
