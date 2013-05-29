@@ -50,7 +50,6 @@ public class PermissionResource {
 	@Path("/{perm}")
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public List<Permission> getPermission(@PathParam("perm") String perm) {
-
 		try {
 			List<Permission> perms = permissionService
 					.findPermissionsByName(perm);

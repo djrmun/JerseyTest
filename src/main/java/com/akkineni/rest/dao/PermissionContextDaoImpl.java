@@ -43,7 +43,7 @@ public class PermissionContextDaoImpl implements PermissionContextDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Permission> findAllPermissions() {
-		return ldapTemplate.search(BASE_DN, "(permission=*)",
+		return ldapTemplate.search(BASE_DN, "(cuaPermissionName=*)",
 				getContextMapper());
 	}
 
@@ -101,7 +101,7 @@ public class PermissionContextDaoImpl implements PermissionContextDao {
 
 	private Name buildDn(String permission) {
 		DistinguishedName dn = new DistinguishedName(BASE_DN);
-		dn.add("cuapermissionname", permission);
+		dn.add("cuaPermissionName", permission);
 		return dn;
 	}
 
