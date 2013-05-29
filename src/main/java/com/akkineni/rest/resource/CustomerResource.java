@@ -79,7 +79,7 @@ public class CustomerResource {
 	@Produces("text/plain")
 	public String getClichedMessage() {
 		LOGGER.debug("getClichedMessage");
-		return "Hello World";
+		return "Hello CustomerResource!!!";
 	}
 
 	@GET

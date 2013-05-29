@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Named;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.akkineni.rest.dao.JdbcWebphoneDao;
@@ -16,6 +18,9 @@ import com.akkineni.rest.domain.User;
  */
 @Named
 public class UserServiceImpl implements UserService {
+
+	private final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class
+			.getName());
 
 	@Autowired
 	UserContextDao userDao;
@@ -41,6 +46,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void createUserFromWebPhone(String uid, String workgroup) {
 		User userFromWebPhone = jdbcWebphoneDao.fetchUserFromWebPhone(uid);
+		LOGGER.debug("User retrieved from webphone: " + userFromWebPhone);
 		userFromWebPhone.setCuaWorkGroupName(workgroup);
 		userDao.create(userFromWebPhone);
 	}

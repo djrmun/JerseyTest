@@ -37,9 +37,9 @@ import com.google.gson.Gson;
 
 @Named
 @Path("/ldap")
-public class LdapResource {
+public class UserResource {
 
-	private final Logger LOGGER = LoggerFactory.getLogger(LdapResource.class
+	private final Logger LOGGER = LoggerFactory.getLogger(UserResource.class
 			.getName());
 
 	@Context
@@ -48,21 +48,21 @@ public class LdapResource {
 	@Inject
 	UserService userService;
 
-	public LdapResource() {
+	public UserResource() {
 		super();
-		LOGGER.info("Constructed LdapResource");
+		LOGGER.info("Constructed UserResource");
 	}
 
 	@GET
 	@Path("/test")
 	@Produces("text/plain")
 	public String getClichedMessage() {
-		return "Hello Ldap!!!!";
+		return "Hello UserResource!!!!";
 	}
 
 	@GET
 	@Path("/user/{uid}")
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public User getUser(@PathParam("uid") String uid) {
 
 		try {
@@ -76,11 +76,12 @@ public class LdapResource {
 
 	@GET
 	@Path("/user/all")
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@GZIP
 	public List<User> getUserList() {
 		try {
 			List<User> users = userService.getUsers();
+			LOGGER.debug("Successfully retrieved users: " + users.size());
 			return users;
 		} catch (Exception e) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
@@ -113,8 +114,7 @@ public class LdapResource {
 			return true;
 		} catch (Exception e) {
 			LOGGER.error("Exception creating user ID: " + uid, e);
-			throw new WebApplicationException(
-					Response.Status.EXPECTATION_FAILED);
+			throw new WebApplicationException("Error Creating User: " + uid, e);
 		}
 	}
 
@@ -128,8 +128,8 @@ public class LdapResource {
 			return userService.updateWorkGroupForUser(uid, workgroup);
 		} catch (Exception e) {
 			LOGGER.error("Exception creating user ID: " + uid, e);
-			throw new WebApplicationException("Exception updating user!",
-					Response.Status.EXPECTATION_FAILED);
+			throw new WebApplicationException(e,
+					Response.Status.INTERNAL_SERVER_ERROR);
 		}
 	}
 

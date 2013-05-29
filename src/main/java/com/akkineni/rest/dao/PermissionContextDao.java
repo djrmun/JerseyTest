@@ -2,18 +2,20 @@ package com.akkineni.rest.dao;
 
 import java.util.List;
 
+import com.akkineni.rest.domain.Permission;
+
 public interface PermissionContextDao {
 
-	void create(String permission);
+	void create(Permission permission);
 
 	void delete(String permission);
 
-	List<String> findAllPermissions();
+	List<Permission> findAllPermissions();
 
-	String findPermissionByPrimaryKey(String permission) throws Exception;
+	Permission findPermissionByPrimaryKey(String permission) throws Exception;
 
-	List<String> findByName(String name);
+	List<Permission> findByName(String name);
 
-	List<String> findAll();
+	List<Permission> findAll();
 
 }

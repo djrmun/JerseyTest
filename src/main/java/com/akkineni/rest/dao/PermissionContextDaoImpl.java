@@ -15,7 +15,8 @@ import org.springframework.ldap.filter.Filter;
 import org.springframework.ldap.filter.WhitespaceWildcardsFilter;
 import org.springframework.stereotype.Service;
 
-import com.akkineni.rest.util.UserContextMapper;
+import com.akkineni.rest.domain.Permission;
+import com.akkineni.rest.util.PermissionContextMapper;
 
 @Service
 public class PermissionContextDaoImpl implements PermissionContextDao {
@@ -26,8 +27,8 @@ public class PermissionContextDaoImpl implements PermissionContextDao {
 	public static final String BASE_DN = "ou=permissions,ou=LSBBNMS,ou=applications,dc=cua,dc=snt,dc=bst,dc=bls,dc=com";
 
 	@Override
-	public void create(String permission) {
-		Name dn = buildDn(permission);
+	public void create(Permission permission) {
+		Name dn = buildDn(permission.getCuaPermissionName());
 		DirContextAdapter context = new DirContextAdapter(dn);
 		mapToContext(permission, context);
 		ldapTemplate.bind(context);
@@ -41,16 +42,17 @@ public class PermissionContextDaoImpl implements PermissionContextDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<String> findAllPermissions() {
+	public List<Permission> findAllPermissions() {
 		return ldapTemplate.search(BASE_DN, "(permission=*)",
 				getContextMapper());
 	}
 
 	@Override
-	public String findPermissionByPrimaryKey(String permission)
+	public Permission findPermissionByPrimaryKey(String permission)
 			throws Exception {
 		Name dn = buildDn(permission);
-		String perm = (String) ldapTemplate.lookup(dn, getContextMapper());
+		Permission perm = (Permission) ldapTemplate.lookup(dn,
+				getContextMapper());
 		if (perm != null)
 			return perm;
 		else
@@ -59,35 +61,47 @@ public class PermissionContextDaoImpl implements PermissionContextDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<String> findByName(String name) {
-		Filter filter = new WhitespaceWildcardsFilter("permission", name);
+	public List<Permission> findByName(String name) {
+		Filter filter = new WhitespaceWildcardsFilter("cuaPermissionName", name);
 		return ldapTemplate
 				.search(BASE_DN, filter.encode(), getContextMapper());
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<String> findAll() {
+	public List<Permission> findAll() {
 		EqualsFilter filter = new EqualsFilter("objectclass", "cuaPermission");
 		return ldapTemplate.search(DistinguishedName.EMPTY_PATH,
 				filter.encode(), getContextMapper());
 	}
 
-	protected void mapToContext(String permission, DirContextOperations context) {
+	protected void mapToContext(Permission permission,
+			DirContextOperations context) {
 
 		context.setAttributeValues("objectclass", new String[] { "top",
-				"person", "cuaPermission", "inetOrgPerson",
-				"organizationalPerson" });
-		context.setAttributeValue("permissions", permission);
+				"cuapermission" });
+		context.setAttributeValue("cuaPermissionName",
+				permission.getCuaPermissionName());
+		context.setAttributeValue("description", permission.getDescription());
+		context.setAttributeValue("cuaEntityIsAdmin",
+				Boolean.toString(permission.getCuaEntityIsAdmin()));
+
+		context.setAttributeValue("cuaisportswappermission",
+				Boolean.toString(permission.getCuaIsPortSwapPermission()));
+
+		if (permission.getCuaPermissionCategory() != null
+				&& permission.getCuaPermissionCategory().length > 0)
+			context.setAttributeValues("cuaPermissionCategory",
+					permission.getCuaPermissionCategory());
 	}
 
 	private ContextMapper getContextMapper() {
-		return new UserContextMapper();
+		return new PermissionContextMapper();
 	}
 
 	private Name buildDn(String permission) {
 		DistinguishedName dn = new DistinguishedName(BASE_DN);
-		dn.add("permission", permission);
+		dn.add("cuapermissionname", permission);
 		return dn;
 	}
 
