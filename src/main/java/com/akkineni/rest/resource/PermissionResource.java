@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -44,6 +45,20 @@ public class PermissionResource {
 	@Produces("text/plain")
 	public String getClichedMessage() {
 		return "Hello PermissionResource!!!!";
+	}
+
+	@DELETE
+	@Path("/{perm}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public void deletePermission(@PathParam("perm") String perm) {
+
+		try {
+			permissionService.deletePermission(perm);
+		} catch (Exception e) {
+			LOGGER.error("Exception deleting permission: " + perm, e);
+			throw new WebApplicationException(
+					Response.Status.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@GET

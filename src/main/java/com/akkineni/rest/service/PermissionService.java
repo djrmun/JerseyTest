@@ -10,4 +10,6 @@ public interface PermissionService {
 
 	List<Permission> findAllPermissions();
 
+	void deletePermission(String perm);
+
 }

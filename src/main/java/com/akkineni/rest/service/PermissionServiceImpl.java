@@ -29,4 +29,9 @@ public class PermissionServiceImpl implements PermissionService {
 		return permissionContextDao.findByName(perm);
 	}
 
+	@Override
+	public void deletePermission(String perm) {
+		permissionContextDao.delete(perm);
+	}
+
 }
