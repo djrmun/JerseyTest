@@ -1,9 +1,40 @@
-<html>
+<!doctype html>
+<html lang="en" ng-app>
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta charset="utf-8">
+  <title>CUA Redux</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-	<h2>Hello RestEasy!</h2>
-	<div id="body"></div>
+<div class="container" ng-controller="PermissionController">
+  <button type="submit" class="btn" ng-click="search()">Search All Permissions</button>
+  Filter: <input type="text" ng-model="name" /> {{name}}
+  <ul>
+    <li ng-repeat="perm in permissions|filter:name|orderBy:'cuaPermissionName'">
+      {{perm.cuaPermissionName}}
+    </li>
+  </ul>
+</div>
+<script>
+  function PermissionController($scope,$http){
+      $scope.url = 'http://localhost:8080/JerseyTest/rest/ldap/permission/all';
+
+      $scope.search = function() {
+        $http.get($scope.url).
+        success(function(data,status){
+          $scope.status = status;
+          $scope.permissions = data;
+
+        }).
+        error(function(data,status){
+          $scope.data = data || "Request failed";
+          $scope.status=status;
+        });
+      };    
+  }
+</script>
+<script src="lib/angular/angular.js"></script> 
+<script src="lib/angular/angular-resource.js"></script>
 </body>
 </html>
