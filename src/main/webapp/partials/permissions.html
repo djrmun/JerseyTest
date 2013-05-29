@@ -1,0 +1,16 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">
+			<!--Sidebar content-->
+			<button type="submit" class="btn" ng-click="search()">Fetch
+				Permissions</button>
+			<br> Filter: <input type="text" ng-model="name" /> {{name}}
+		</div>
+		<div class="span10">
+			<ul class="phones">
+				<li ng-repeat="perm in permissions|filter:name" class="thumbnail">
+					{{perm.cuaPermissionName}}</li>
+			</ul>
+		</div>
+	</div>
+</div>

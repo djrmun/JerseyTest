@@ -1,40 +1,20 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="phonecat">
 <head>
   <meta charset="utf-8">
-  <title>CUA Redux</title>
+  <title>Google Phone Gallery</title>
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/app.js"></script>  
+  <script src="js/filters.js"></script>
+  <script src="js/services.js"></script>
+  <script src="lib/angular/angular-resource.js"></script>
 </head>
 <body>
-<div class="container" ng-controller="PermissionController">
-  <button type="submit" class="btn" ng-click="search()">Search All Permissions</button>
-  Filter: <input type="text" ng-model="name" /> {{name}}
-  <ul>
-    <li ng-repeat="perm in permissions|filter:name|orderBy:'cuaPermissionName'">
-      {{perm.cuaPermissionName}}
-    </li>
-  </ul>
-</div>
-<script>
-  function PermissionController($scope,$http){
-      $scope.url = 'http://localhost:8080/JerseyTest/rest/ldap/permission/all';
 
-      $scope.search = function() {
-        $http.get($scope.url).
-        success(function(data,status){
-          $scope.status = status;
-          $scope.permissions = data;
+  <div ng-view></div>
 
-        }).
-        error(function(data,status){
-          $scope.data = data || "Request failed";
-          $scope.status=status;
-        });
-      };    
-  }
-</script>
-<script src="lib/angular/angular.js"></script> 
-<script src="lib/angular/angular-resource.js"></script>
 </body>
 </html>
