@@ -19,7 +19,7 @@ import com.akkineni.rest.domain.Permission;
 import com.akkineni.rest.util.PermissionContextMapper;
 
 @Service
-public class PermissionContextDaoImpl implements PermissionContextDao {
+public class PermissionDaoImpl implements PermissionDao {
 
 	@Autowired
 	private LdapTemplate ldapTemplate;

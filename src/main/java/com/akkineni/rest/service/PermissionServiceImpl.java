@@ -6,7 +6,7 @@ import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.akkineni.rest.dao.PermissionContextDao;
+import com.akkineni.rest.dao.PermissionDao;
 import com.akkineni.rest.domain.Permission;
 
 /**
@@ -17,7 +17,7 @@ import com.akkineni.rest.domain.Permission;
 public class PermissionServiceImpl implements PermissionService {
 
 	@Autowired
-	PermissionContextDao permissionContextDao;
+	PermissionDao permissionContextDao;
 
 	@Override
 	public List<Permission> findAllPermissions() {

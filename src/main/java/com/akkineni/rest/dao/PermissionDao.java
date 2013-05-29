@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.akkineni.rest.domain.Permission;
 
-public interface PermissionContextDao {
+public interface PermissionDao {
 
 	void create(Permission permission);
 
