@@ -1,9 +1,5 @@
 package com.akkineni.rest.client;
 
-import java.io.IOException;
-import java.net.URI;
-
-import javax.ws.rs.core.UriBuilder;
 
 //import org.glassfish.grizzly.http.server.HttpServer;
 //

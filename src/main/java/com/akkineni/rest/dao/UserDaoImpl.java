@@ -35,6 +35,7 @@ public class UserDaoImpl implements UserDao {
 
 	public static final String BASE_DN = "ou=users,ou=LSBBNMS,ou=applications,dc=cua,dc=snt,dc=bst,dc=bls,dc=com";
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getAllUsers() {
 		return ldapTemplate.search(BASE_DN, "(uid=*)",
@@ -44,6 +45,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User getUserByUid(String uid) throws Exception {
 		Filter filter = new EqualsFilter("uid", uid);
+		@SuppressWarnings("unchecked")
 		List<User> users = ldapTemplate.search(BASE_DN, filter.encode(),
 				new UserAttributesMapper());
 		if (users != null && users.size() > 0)
