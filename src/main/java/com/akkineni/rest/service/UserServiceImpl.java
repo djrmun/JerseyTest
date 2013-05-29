@@ -7,7 +7,7 @@ import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.akkineni.rest.dao.JdbcWebphoneDao;
-import com.akkineni.rest.dao.UserDao;
+import com.akkineni.rest.dao.UserContextDao;
 import com.akkineni.rest.domain.User;
 
 /**
@@ -18,19 +18,19 @@ import com.akkineni.rest.domain.User;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserDao userDao;
+	UserContextDao userDao;
 
 	@Autowired
 	JdbcWebphoneDao jdbcWebphoneDao;
 
 	@Override
 	public List<User> getUsers() {
-		return userDao.getAllUsers();
+		return userDao.findAllUsers();
 	}
 
 	@Override
 	public User getUser(String uid) throws Exception {
-		return userDao.getUserByUid(uid);
+		return userDao.findUserByPrimaryKey(uid);
 	}
 
 	@Override
@@ -46,9 +46,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User updateWorkGroupForUser(String uid, String workgroup) throws Exception {
+	public User updateWorkGroupForUser(String uid, String workgroup)
+			throws Exception {
 		userDao.updateWorkGroup(uid, workgroup);
-		return userDao.getUserByUid(uid);
+		return userDao.findUserByPrimaryKey(uid);
 
 	}
 

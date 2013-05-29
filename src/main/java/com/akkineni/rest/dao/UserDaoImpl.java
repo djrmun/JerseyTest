@@ -35,10 +35,6 @@ public class UserDaoImpl implements UserDao {
 
 	public static final String BASE_DN = "ou=users,ou=LSBBNMS,ou=applications,dc=cua,dc=snt,dc=bst,dc=bls,dc=com";
 
-	public void setLdapTemplate(LdapTemplate ldapTemplate) {
-		this.ldapTemplate = ldapTemplate;
-	}
-
 	@Override
 	public List<User> getAllUsers() {
 		return ldapTemplate.search(BASE_DN, "(uid=*)",
