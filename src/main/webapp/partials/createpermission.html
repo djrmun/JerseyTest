@@ -12,6 +12,12 @@
 					type="radio" ng-model="perm.cuaEntityIsAdmin"
 					ng-value="true" />true <input type="radio"
 					ng-model="perm.cuaEntityIsAdmin" ng-value="false" />false<br />
+					<select ng-model="selectedDomain">
+						 <option ng-repeat="st in domains">{{st.name}}</option>
+					</select>
+					<select ng-model="selectedType">
+						 <option ng-repeat="st in types">{{st.name}}</option>
+					</select>
 				<button ng-click="reset()">RESET</button>
 				<button ng-click="update(perm)">SAVE</button>
 			</form>
