@@ -18,7 +18,7 @@ function PhoneDetailCtrl($scope, $routeParams, Phone) {
 
 	$scope.setImage = function(imageUrl) {
 		$scope.mainImageUrl = imageUrl;
-	}
+	};
 }
 
 function PermissionController($scope, $http) {
@@ -28,6 +28,21 @@ function PermissionController($scope, $http) {
 		$http.get($scope.url).success(function(data, status) {
 			$scope.status = status;
 			$scope.permissions = data;
+
+		}).error(function(data, status) {
+			$scope.data = data || "Request failed";
+			$scope.status = status;
+		});
+	};
+}
+
+function ProfileController($scope, $http) {
+	$scope.url = 'http://localhost:8080/JerseyTest/rest/ldap/profile/all';
+
+	$scope.search = function() {
+		$http.get($scope.url).success(function(data, status) {
+			$scope.status = status;
+			$scope.profiles = data;
 
 		}).error(function(data, status) {
 			$scope.data = data || "Request failed";
