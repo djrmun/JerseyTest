@@ -1,0 +1,22 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<form novalidate class="simple-form">
+				Name: <input type="text" ng-model="perm.cuaPermissionName" /><br />
+				Description: <input type="text" ng-model="perm.description" /><br />
+				Port Swap Permission: <input type="radio"
+					ng-model="perm.cuaIsPortSwapPermission" ng-value="true" />true <input
+					type="radio" ng-model="perm.cuaIsPortSwapPermission"
+					ng-value="false" />false<br /> 
+					Entity Is Admin: <input
+					type="radio" ng-model="perm.cuaEntityIsAdmin"
+					ng-value="true" />true <input type="radio"
+					ng-model="perm.cuaEntityIsAdmin" ng-value="false" />false<br />
+				<button ng-click="reset()">RESET</button>
+				<button ng-click="update(perm)">SAVE</button>
+			</form>
+			<pre>form = {{perm | json}}</pre>
+			<pre>master = {{master | json}}</pre>
+		</div>
+	</div>
+</div>

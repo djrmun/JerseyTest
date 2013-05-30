@@ -36,4 +36,18 @@ function PermissionController($scope,$http){
       };    
   }
 
+function CreatePermissionController($scope,$http){
+	 $scope.master= {};
+	 
+	 $scope.update = function(perm) {
+		 $scope.master= angular.copy(perm);
+	 };
+	  
+	 $scope.reset = function() {
+		 $scope.perm = angular.copy($scope.master);
+	 };
+	  
+	 $scope.reset();
+}
+
 //PhoneDetailCtrl.$inject = ['$scope', '$routeParams', 'Phone'];

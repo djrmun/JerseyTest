@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +22,6 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.StreamingOutput;
 import javax.ws.rs.ext.Providers;
 
 import org.jboss.resteasy.annotations.GZIP;
@@ -33,7 +30,6 @@ import org.slf4j.LoggerFactory;
 
 import com.akkineni.rest.domain.User;
 import com.akkineni.rest.service.UserService;
-import com.google.gson.Gson;
 
 @Named
 @Path("/ldap")
@@ -176,59 +172,5 @@ public class UserResource {
 	// return Response.created(URI.create("/customers/" + customer.getId()))
 	// .build();
 	// }
-
-	// @POST
-	// @Path("/create/list")
-	// @Consumes("application/xml")
-	// public Response createCustomer(InputStream is) {
-	// List<Customer> customerList = StaxParserHelper.createCustomerList(is);
-	// for (Customer cust : customerList) {
-	// cust.setId(idCounter.incrementAndGet());
-	// customerDB.put(cust.getId(), cust);
-	// }
-	// return Response.created(URI.create("/customers/list")).build();
-	// }
-
-	// @PUT
-	// @Path("{id}")
-	// @Consumes("application/xml")
-	// public void updateCustomer(@PathParam("id") int id, InputStream is) {
-	// Customer update = StaxParserHelper.createCustomerFromInputStream(is);
-	// Customer current = customerDB.get(id);
-	// if (current == null)
-	// throw new WebApplicationException(Response.Status.NOT_FOUND);
-	// current.setFirstName(update.getFirstName());
-	// current.setLastName(update.getLastName());
-	// current.setStreet(update.getStreet());
-	// current.setState(update.getState());
-	// current.setZip(update.getZip());
-	// current.setCountry(update.getCountry());
-	// }
-
-	@GET
-	@Path("/GsonUserSearch")
-	@Produces({ MediaType.APPLICATION_JSON })
-	@GZIP
-	public StreamingOutput GsonUserSearch() {
-
-		final List<User> users = userService.getUsers();
-
-		return new StreamingOutput() {
-			public void write(OutputStream output) throws IOException,
-					WebApplicationException {
-				try {
-					Gson gson = new Gson();
-					String json = gson.toJson(users);
-					OutputStreamWriter osw = new OutputStreamWriter(output,
-							"UTF-8");
-					osw.write(json);
-					osw.close();
-				} catch (Exception e) {
-					throw new WebApplicationException(e);
-				}
-			}
-		};
-
-	}
 
 }
