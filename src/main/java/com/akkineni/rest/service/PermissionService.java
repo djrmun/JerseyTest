@@ -12,4 +12,6 @@ public interface PermissionService {
 
 	void deletePermission(String perm);
 
+	void create(Permission permission);
+
 }

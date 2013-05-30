@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -45,6 +47,20 @@ public class PermissionResource {
 	@Produces("text/plain")
 	public String getClichedMessage() {
 		return "Hello PermissionResource!!!!";
+	}
+
+	@POST
+	@Path("/create")
+	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public void createPermission(Permission permission) {
+
+		try {
+			permissionService.create(permission);
+		} catch (Exception e) {
+			LOGGER.error("Exception creating user ID: " + permission, e);
+			throw new WebApplicationException(e,
+					Response.Status.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@DELETE

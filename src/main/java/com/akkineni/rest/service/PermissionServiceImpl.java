@@ -34,4 +34,9 @@ public class PermissionServiceImpl implements PermissionService {
 		permissionContextDao.delete(perm);
 	}
 
+	@Override
+	public void create(Permission permission) {
+		permissionContextDao.create(permission);
+	}
+
 }
