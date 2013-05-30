@@ -51,15 +51,22 @@ function CreatePermissionController($scope, $http) {
 	}, {
 		name : 'type_nti'
 	} ];
-	
+
 	$scope.master = {};
 
 	$scope.update = function(perm) {
 		var arr = [];
 		arr.push($scope.selectedDomain);
 		arr.push($scope.selectedType);
-		$scope.perm.cuaPermissionCategory=arr;
+		$scope.perm.cuaPermissionCategory = arr;
 		$scope.master = angular.copy(perm);
+		$http.post(
+				'http://localhost:8080/JerseyTest/rest/ldap/permission/create',
+				$scope.master).success(function(data, status) {
+			$scope.errorMsg = "success " + status;
+		}).error(function(data, status) {
+			$scope.errorMsg = "No Doughnut for you :) " + status;
+		});
 	};
 
 	$scope.reset = function() {

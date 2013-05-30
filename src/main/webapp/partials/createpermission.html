@@ -1,9 +1,9 @@
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span12">
-			<form novalidate class="simple-form">
-				Name: <input type="text" ng-model="perm.cuaPermissionName" /><br />
-				Description: <input type="text" ng-model="perm.description" /><br />
+			<form name="form" novalidate class="simple-form">
+				Name: <input type="text" ng-model="perm.cuaPermissionName" required /><br />
+				Description: <input type="text" ng-model="perm.description" required /><br />
 				Port Swap Permission: <input type="radio"
 					ng-model="perm.cuaIsPortSwapPermission" ng-value="true" />true <input
 					type="radio" ng-model="perm.cuaIsPortSwapPermission"
@@ -19,10 +19,11 @@
 						 <option ng-repeat="st in types">{{st.name}}</option>
 					</select>
 				<button ng-click="reset()">RESET</button>
-				<button ng-click="update(perm)">SAVE</button>
+				<button ng-disabled="form.$invalid" ng-click="update(perm)">SAVE</button>
 			</form>
 			<pre>form = {{perm | json}}</pre>
 			<pre>master = {{master | json}}</pre>
+			<pre>{{errorMsg}}</pre>
 		</div>
 	</div>
 </div>
