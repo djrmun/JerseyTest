@@ -6,8 +6,6 @@ import java.util.logging.Logger;
 
 import javax.ws.rs.core.Application;
 
-import com.akkineni.rest.resource.CustomerResource;
-
 public class AkkiRestApplicaton extends Application {
 
 	private final Logger LOGGER = Logger.getLogger(AkkiRestApplicaton.class
@@ -19,7 +17,6 @@ public class AkkiRestApplicaton extends Application {
 	public AkkiRestApplicaton() {
 		super();
 		LOGGER.info("created AKKIRESTAPPLICATION");
-		singletons.add(new CustomerResource());
 	}
 
 	@Override
