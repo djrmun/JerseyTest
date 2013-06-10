@@ -2,13 +2,14 @@
 	<div class="row-fluid">
 		<div class="span2">
 			<!--Sidebar content-->
-			<button type="submit" class="btn" ng-click="search()">Fetch
+			<button type="submit" class="btn btn-primary" ng-click="search()">Fetch
 				Permissions</button>
-			<br> Filter: <input type="text" ng-model="name" /> {{name}}
+			<br> Filter: <input type="text" ng-model="name"  class="span12"/> 
+			<br> {{name}}
 		</div>
 		<div class="span10">
-			<ul class="phones">
-				<li ng-repeat="perm in permissions|filter:name" class="thumbnail">
+			<ul>
+				<li ng-repeat="perm in permissions|filter:name">
 					{{perm.cuaPermissionName}}</li>
 			</ul>
 		</div>
