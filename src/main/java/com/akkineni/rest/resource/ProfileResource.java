@@ -79,6 +79,7 @@ public class ProfileResource {
 
 	@GET
 	@Path("/{profile}")
+	@GZIP
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public List<Profile> getProfile(@PathParam("profile") String profile) {
 		try {

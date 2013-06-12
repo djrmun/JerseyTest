@@ -61,7 +61,6 @@ function CreatePermissionController($scope, $http) {
 			console.log("newvalue is undefined");
 		}
 		
-		
 		$scope.perm.cuaPermissionCategory = cuaPermissionCategory;		
 	};
 
@@ -94,8 +93,38 @@ function CreatePermissionController($scope, $http) {
 	};
 
 	$scope.reset = function() {
-		$scope.perm = angular.copy($scope.master);
+		$scope.perm = '';
 	};
 
 	$scope.reset();
+}
+
+function WorkgroupController($scope, $http) {
+	$scope.url = 'http://localhost:8080/JerseyTest/rest/ldap/profile/all';
+
+	$scope.search = function() {
+		$http.get($scope.url).success(function(data, status) {
+			$scope.status = status;
+			$scope.workgroups = data;
+
+		}).error(function(data, status) {
+			$scope.data = data || "Request failed";
+			$scope.status = status;
+		});
+	};
+
+	$scope.search();
+}
+
+function WorkgroupDetailsController($scope, $http, $routeParams) {
+	$scope.url = 'http://localhost:8080/JerseyTest/rest/ldap/profile/'+$routeParams.workgroupID;
+
+	$http.get($scope.url).success(function(data, status) {
+		$scope.status = status;
+		$scope.workgroup = data;
+		console.log($scope.workgroup.cuaPermissionName)
+	}).error(function(data, status) {
+		$scope.data = data || "Request failed";
+		$scope.status = status;
+	});
 }

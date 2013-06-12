@@ -28,6 +28,16 @@
 		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
 	</servlet>
 
+	<servlet>
+     <servlet-name>default</servlet-name>
+     <servlet-class>org.eclipse.jetty.servlet.DefaultServlet</servlet-class>
+     <init-param>
+       <param-name>useFileMappedBuffer</param-name>
+       <param-value>false</param-value>
+     </init-param>
+     <load-on-startup>0</load-on-startup>
+   </servlet>
+
 	<servlet-mapping>
 		<servlet-name>RestEasy</servlet-name>
 		<url-pattern>/rest/*</url-pattern>

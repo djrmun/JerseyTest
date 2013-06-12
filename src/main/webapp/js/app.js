@@ -16,6 +16,12 @@ angular.module('cuaApp', [ 'phonecatFilters', 'phonecatServices' ]).config(
 			}).when('/permcreate', {
 				templateUrl : 'partials/createpermission.html',
 				controller : CreatePermissionController
+			}).when('/workgroups',{
+				templateUrl : 'partials/workgroups.html',
+				controller : WorkgroupController
+			}).when('/workgroup/:workgroupID',{
+				templateUrl : 'partials/workgroupdetails.html',
+				controller : WorkgroupDetailsController
 			}).otherwise({
 				redirectTo : '/home'
 			});
