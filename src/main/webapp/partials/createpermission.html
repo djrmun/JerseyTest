@@ -4,26 +4,25 @@
 			<form name="form" novalidate class="simple-form">
 				Name: <input type="text" ng-model="perm.cuaPermissionName" required /><br />
 				Description: <input type="text" ng-model="perm.description" required /><br />
-				Port Swap Permission: <input type="radio"
-					ng-model="perm.cuaIsPortSwapPermission" ng-value="true" />true <input
-					type="radio" ng-model="perm.cuaIsPortSwapPermission"
-					ng-value="false" />false<br /> 
-					Entity Is Admin: <input
-					type="radio" ng-model="perm.cuaEntityIsAdmin"
-					ng-value="true" />true <input type="radio"
-					ng-model="perm.cuaEntityIsAdmin" ng-value="false" />false<br />
-					<select ng-model="selectedDomain">
-						 <option ng-repeat="st in domains">{{st.name}}</option>
-					</select>
-					<select ng-model="selectedType">
-						 <option ng-repeat="st in types">{{st.name}}</option>
-					</select>
-				<button ng-click="reset()">RESET</button>
-				<button ng-disabled="form.$invalid" ng-click="update(perm)">SAVE</button>
+				<label class="checkbox inline">
+					<input type="checkbox" name="isPortSwapPermCheckBox" id="isPortSwapPermCheckBox" ng-model="perm.cuaIsPortSwapPermission"/>
+					Port Swap Permission: 
+				</label>				
+				<label class="checkbox inline">
+					<input type="checkbox" name="isAdminEntityCheckBox" id="isAdminEntityCheckBox" ng-model="perm.cuaEntityIsAdmin"/>
+					Entity Is Admin: 
+				</label>
+				<br/>
+				<select ng-model="selectedDomain" ng-options="d.name for d in domains" required/>					
+				<select ng-model="selectedType" ng-options="d.name for d in types" required/>					
+				<button class="btn btn-primary" ng-click="reset()">RESET</button>
+				<button class="btn btn-primary" ng-disabled="form.$invalid"
+					ng-click="update(perm)">SAVE</button>
 			</form>
 			<pre>form = {{perm | json}}</pre>
 			<pre>master = {{master | json}}</pre>
 			<pre>{{errorMsg}}</pre>
+			<pre>{{perm.cuaIsPortSwapPermission}}</pre>
 		</div>
 	</div>
 </div>

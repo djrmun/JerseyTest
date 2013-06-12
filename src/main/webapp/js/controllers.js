@@ -34,6 +34,11 @@ function ProfileController($scope, $http) {
 
 function CreatePermissionController($scope, $http) {
 
+	var cuaPermissionCategory = [];
+	$scope.perm = new Object();
+	$scope.perm.cuaIsPortSwapPermission = false;
+	$scope.perm.cuaEntityIsAdmin = false;
+
 	$scope.domains = [ {
 		name : 'domain_serviceorder'
 	}, {
@@ -48,13 +53,36 @@ function CreatePermissionController($scope, $http) {
 		name : 'type_nti'
 	} ];
 
+	function updatePermWithDomain(newValue,oldValue){
+		console.log("updatePermWithDomain invoked");
+		if(newValue){
+			cuaPermissionCategory[0] = newValue.name;
+		}else{
+			console.log("newvalue is undefined");
+		}
+		
+		
+		$scope.perm.cuaPermissionCategory = cuaPermissionCategory;		
+	};
+
+	$scope.$watch('selectedDomain',updatePermWithDomain);
+
+	function updatePermWithType(newValue,oldValue){
+		if(newValue){
+			cuaPermissionCategory[1] = newValue.name;
+		}else{
+			console.log("new type is undefrined");
+		}
+		
+		console.log("updatePermWithType invoked");
+		$scope.perm.cuaPermissionCategory = cuaPermissionCategory;		
+	};
+
+	$scope.$watch('selectedType',updatePermWithType);
+
 	$scope.master = {};
 
 	$scope.update = function(perm) {
-		var arr = [];
-		arr.push($scope.selectedDomain);
-		arr.push($scope.selectedType);
-		$scope.perm.cuaPermissionCategory = arr;
 		$scope.master = angular.copy(perm);
 		$http.post(
 				'http://localhost:8080/JerseyTest/rest/ldap/permission/create',
@@ -71,5 +99,3 @@ function CreatePermissionController($scope, $http) {
 
 	$scope.reset();
 }
-
-// PhoneDetailCtrl.$inject = ['$scope', '$routeParams', 'Phone'];

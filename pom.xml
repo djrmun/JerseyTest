@@ -399,6 +399,7 @@
 				<version>9.0.3.v20130506</version>
 				<configuration>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
+					<webDefaultXml>src/test/resources/webdefault.xml</webDefaultXml>
 					<webAppConfig>
 						<contextPath>/JerseyTest</contextPath>
 					</webAppConfig>
