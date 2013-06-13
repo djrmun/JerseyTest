@@ -12,7 +12,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="perm in workgroup[0].cuaPermissionName|sortAlphabetically">
+                <tr ng-repeat="perm in workgroup[0].cuaPermissionName|extractDomainsForPermissions|sortAlphabetically">
                 	<td>{{perm}} </td>
                 </tr>
               </tbody>
