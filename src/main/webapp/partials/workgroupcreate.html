@@ -1,0 +1,22 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<form name="form" novalidate class="simple-form">
+				WorkGroup Name: <input type="text" ng-model="workgroup.cuaProfileName" required /><br />
+				Description: <input type="text" ng-model="workgroup.description" required /><br />				
+				<select size="20" id="permissionsToBeAddedSelect" multiple="multiple" ng-model="permissionsToBeAdded" ng-multiple="true" ng-options="perm.cuaPermissionName for perm in permissions|orderBy:'cuaPermissionName'" />
+				<div>
+					<button class="btn btn-primary" ng-click="addToWorkGroupPermissions(permissionsToBeAdded)">Move Right</button>
+					<button class="btn btn-primary" ng-click="removeFromWorkGroupPermissions(permissionsToBeRemoved)">Move Left</button>	
+				</div>
+				<select size="20" id="permissionsToBeRemovedSelect" multiple="multiple" ng-model="permissionsToBeRemoved" ng-multiple="true" ng-options="perm.cuaPermissionName for perm in workgroupPermissions|orderBy:'cuaPermissionName'" required/>		
+				<br/>			
+				<button class="btn btn-primary" ng-click="reset()">RESET</button>
+				<button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="create(workgroup)">CREATE</button>
+			</form>
+			<pre>form = {{workgroup | json}}</pre>
+			<pre>master = {{master | json}}</pre>
+			<pre>{{errorMsg}}</pre>
+		</div>
+	</div>
+</div>

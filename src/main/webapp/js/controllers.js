@@ -130,3 +130,95 @@ function WorkgroupDetailsController($scope, $http, $routeParams) {
 		$scope.status = status;
 	});
 }
+
+function WorkgroupCreateController($scope, $http) {
+
+	$scope.master = {};
+	$scope.workgroup = {};
+
+	var allpermissions = [];
+
+	$scope.allPermissionsFetchUrl = 'http://localhost:8080/JerseyTest/rest/ldap/permission/all';
+
+	function search() {
+		$http.get($scope.allPermissionsFetchUrl).success(function(data, status) {
+			$scope.status = status;
+			$scope.permissions = data;
+			allpermissions = data;
+			$scope.errorMsg = "success fetching permissions!!" + status;
+		}).error(function(data, status) {
+			$scope.errorMsg = "No Doughnut for you :( Permissions Fetch Failed" + status;
+			$scope.permissions = [];
+			$scope.data = data || "Request failed";
+			$scope.status = status;
+		});
+	};
+
+	search();
+
+	$scope.workgroupPermissions = [];
+	$scope.workgroup.cuaPermissionName = [];
+
+	$scope.create = function(workgroup) {
+		$scope.master = angular.copy(workgroup);
+		$http.post('http://localhost:8080/JerseyTest/rest/ldap/profile/create',$scope.master)
+		.success(function(data, status) {
+			$scope.errorMsg = "success " + status;
+		}).error(function(data, status) {
+			$scope.errorMsg = "No Doughnut for you :) " + status;
+		});
+	};
+
+	$scope.addToWorkGroupPermissions = function(permissionsToBeAdded) {
+		if(permissionsToBeAdded){
+			var permissionsNameArray = [];
+			permissionsToBeAdded.forEach(function(item){
+				permissionsNameArray.push(item.cuaPermissionName);
+			});
+			$scope.workgroup.cuaPermissionName.push.apply($scope.workgroup.cuaPermissionName,permissionsNameArray);
+			$scope.workgroupPermissions.push.apply($scope.workgroupPermissions,permissionsToBeAdded);
+
+			permissionsToBeAdded.forEach(function(item){
+				for (var i = $scope.permissions.length - 1; i >= 0; i--) {
+					if($scope.permissions[i].cuaPermissionName === item.cuaPermissionName){
+						$scope.permissions.splice(i,1);
+					}
+				};
+			});
+			console.log($scope.permissions.length);
+		}
+	};
+
+	$scope.removeFromWorkGroupPermissions = function(permissionsToBeRemoved) {
+		if(permissionsToBeRemoved){
+			var permissionsNameArray = [];
+			permissionsToBeRemoved.forEach(function(item){
+				permissionsNameArray.push(item.cuaPermissionName);
+			});
+
+			$scope.permissions.push.apply($scope.permissions,permissionsToBeRemoved);		
+
+			permissionsToBeRemoved.forEach(function(item){
+				for (var i = $scope.workgroupPermissions.length - 1; i >= 0; i--) {
+					if($scope.workgroupPermissions[i].cuaPermissionName === item.cuaPermissionName){
+						$scope.workgroupPermissions.splice(i,1);
+					}
+				};
+
+				for (var i = $scope.workgroup.cuaPermissionName.length - 1; i >= 0; i--) {
+					if($scope.workgroup.cuaPermissionName[i].cuaPermissionName === item.cuaPermissionName){
+						$scope.workgroup.cuaPermissionName.splice(i,1);
+					}
+				};
+
+			});
+			console.log($scope.permissions.length);
+		}
+	};
+
+	$scope.reset = function() {
+		$scope.perm = '';
+	};
+
+	$scope.reset();
+}
