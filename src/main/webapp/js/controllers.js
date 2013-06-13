@@ -100,6 +100,8 @@ function CreatePermissionController($scope, $http) {
 }
 
 function WorkgroupController($scope, $http) {
+
+	$scope.order = 'cuaProfileName';
 	$scope.url = 'http://localhost:8080/JerseyTest/rest/ldap/profile/all';
 
 	$scope.search = function() {

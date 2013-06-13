@@ -15,7 +15,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="work in workgroups|filter:name">
+                <tr ng-repeat="work in workgroups|orderBy:'cuaProfileName'|filter:name">
                 	<td><a href="#/workgroup/{{work.cuaProfileName}}">{{work.cuaProfileName}}</a></li></td>
                 </tr>
               </tbody>
