@@ -15,6 +15,8 @@ function PermissionController($scope, $http) {
 			$scope.status = status;
 		});
 	};
+
+	$scope.search();
 }
 
 function ProfileController($scope, $http) {
@@ -134,7 +136,6 @@ function WorkgroupDetailsController($scope, $http, $routeParams) {
 function WorkgroupCreateController($scope, $http) {
 
 	$scope.master = {};
-	$scope.workgroup = {};
 
 	var allpermissions = [];
 
@@ -156,6 +157,7 @@ function WorkgroupCreateController($scope, $http) {
 
 	search();
 
+	$scope.workgroup = {};
 	$scope.workgroupPermissions = [];
 	$scope.workgroup.cuaPermissionName = [];
 
@@ -171,11 +173,6 @@ function WorkgroupCreateController($scope, $http) {
 
 	$scope.addToWorkGroupPermissions = function(permissionsToBeAdded) {
 		if(permissionsToBeAdded){
-			var permissionsNameArray = [];
-			permissionsToBeAdded.forEach(function(item){
-				permissionsNameArray.push(item.cuaPermissionName);
-			});
-			$scope.workgroup.cuaPermissionName.push.apply($scope.workgroup.cuaPermissionName,permissionsNameArray);
 			$scope.workgroupPermissions.push.apply($scope.workgroupPermissions,permissionsToBeAdded);
 
 			permissionsToBeAdded.forEach(function(item){
@@ -186,16 +183,14 @@ function WorkgroupCreateController($scope, $http) {
 				};
 			});
 			console.log($scope.permissions.length);
+			console.log($scope.workgroupPermissions.length);
 		}
+		setWorkGroupPermissionsInTheModel();
 	};
 
 	$scope.removeFromWorkGroupPermissions = function(permissionsToBeRemoved) {
 		if(permissionsToBeRemoved){
-			var permissionsNameArray = [];
-			permissionsToBeRemoved.forEach(function(item){
-				permissionsNameArray.push(item.cuaPermissionName);
-			});
-
+			
 			$scope.permissions.push.apply($scope.permissions,permissionsToBeRemoved);		
 
 			permissionsToBeRemoved.forEach(function(item){
@@ -205,15 +200,21 @@ function WorkgroupCreateController($scope, $http) {
 					}
 				};
 
-				for (var i = $scope.workgroup.cuaPermissionName.length - 1; i >= 0; i--) {
-					if($scope.workgroup.cuaPermissionName[i].cuaPermissionName === item.cuaPermissionName){
-						$scope.workgroup.cuaPermissionName.splice(i,1);
-					}
-				};
-
 			});
 			console.log($scope.permissions.length);
+			console.log($scope.workgroupPermissions.length);
 		}
+
+		setWorkGroupPermissionsInTheModel();
+	};
+
+	function setWorkGroupPermissionsInTheModel(){
+		var permissionsArray = [];
+		$scope.workgroup.cuaPermissionName = [];
+		$scope.workgroupPermissions.forEach(function(item){
+			permissionsArray.push(item.cuaPermissionName);
+		});
+		$scope.workgroup.cuaPermissionName = permissionsArray;
 	};
 
 	$scope.reset = function() {
