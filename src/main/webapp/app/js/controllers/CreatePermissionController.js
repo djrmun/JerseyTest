@@ -4,10 +4,15 @@ define(['controllers','services'], function(controllers,services) {
 
 	controllers.controller('CreatePermissionController', ['$scope', '$http', function($scope, $http) {
 
-	var cuaPermissionCategory = [];
-	$scope.perm = {};
-	$scope.perm.cuaIsPortSwapPermission = false;
-	$scope.perm.cuaEntityIsAdmin = false;
+	$scope.hello = 'test';
+
+	$scope.perm = {
+		cuaIsPortSwapPermission : false ,
+		cuaEntityIsAdmin : false ,
+		cuaPermissionCategory : [' ',' ']
+	};
+
+	console.log($scope.perm);
 
 	$scope.domains = [ {
 		name : 'domain_serviceorder'
@@ -26,25 +31,28 @@ define(['controllers','services'], function(controllers,services) {
 	function updatePermWithDomain(newValue,oldValue){
 		console.log("updatePermWithDomain invoked");
 		if(newValue){
-			cuaPermissionCategory[0] = newValue.name;
+			if($scope.perm.cuaPermissionCategory)
+				$scope.perm.cuaPermissionCategory[0] = newValue.name;
+			else
+				console.log("permissions category array not defined");
 		}else{
 			console.log("newvalue is undefined");
-		}
-		
-		$scope.perm.cuaPermissionCategory = cuaPermissionCategory;		
+		}		
 	};
 
 	$scope.$watch('selectedDomain',updatePermWithDomain);
 
 	function updatePermWithType(newValue,oldValue){
 		if(newValue){
-			cuaPermissionCategory[1] = newValue.name;
+			if($scope.perm.cuaPermissionCategory)
+				$scope.perm.cuaPermissionCategory[1] = newValue.name;
+			else
+				console.log("permissions category type not definesd");
 		}else{
 			console.log("new type is undefrined");
 		}
 		
 		console.log("updatePermWithType invoked");
-		$scope.perm.cuaPermissionCategory = cuaPermissionCategory;		
 	};
 
 	$scope.$watch('selectedType',updatePermWithType);
@@ -53,20 +61,19 @@ define(['controllers','services'], function(controllers,services) {
 
 	$scope.update = function(perm) {
 		$scope.master = angular.copy(perm);
-		$http.post(
-				'http://localhost:8080/JerseyTest/rest/ldap/permission/create',
-				$scope.master).success(function(data, status) {
-			$scope.errorMsg = "success " + status;
-		}).error(function(data, status) {
-			$scope.errorMsg = "No Doughnut for you :) " + status;
-		});
+		$http.
+			post('http://localhost:8080/JerseyTest/rest/ldap/permission/create',$scope.master)
+				.success(function(data, status) {
+					$scope.errorMsg = "success " + status;
+				})
+				.error(function(data, status) {
+					$scope.errorMsg = "No Doughnut for you :) " + status;
+			});
 	};
 
 	$scope.reset = function() {
 		$scope.perm = '';
 	};
 
-	$scope.reset();
-	
 	}]);
 });
