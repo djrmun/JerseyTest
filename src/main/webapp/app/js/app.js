@@ -11,7 +11,8 @@ define([
 	'controllers/ProfileController',
 	'controllers/WorkgroupController',
 	'controllers/WorkgroupDetailsController',
-	'controllers/WorkgroupCreateController'
+	'controllers/WorkgroupCreateController',
+	'controllers/PermissionUsersController'
 	], function (angular, dependencyResolverFor) {
 		'use strict';
 		console.log('Creating Application Module cuaApp');
@@ -48,6 +49,9 @@ define([
 				}).when('/workgroupcreate',{
 					templateUrl : 'app/partials/workgroupcreate.html',
 					controller : 'WorkgroupCreateController'
+				}).when('/permusersreport',{
+					templateUrl : 'app/partials/permusersreport.html',
+					controller : 'PermissionUsersController'
 				}).otherwise({
 					redirectTo : '/home'
 				});

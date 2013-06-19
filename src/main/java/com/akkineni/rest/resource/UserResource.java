@@ -28,7 +28,9 @@ import org.jboss.resteasy.annotations.GZIP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.akkineni.rest.domain.Profile;
 import com.akkineni.rest.domain.User;
+import com.akkineni.rest.service.ProfileService;
 import com.akkineni.rest.service.UserService;
 
 @Named
@@ -43,6 +45,9 @@ public class UserResource {
 
 	@Inject
 	UserService userService;
+
+	@Inject
+	ProfileService profileService;
 
 	public UserResource() {
 		super();
@@ -81,6 +86,39 @@ public class UserResource {
 			return users;
 		} catch (Exception e) {
 			LOGGER.error("Exception fetching user ID: " + workgroup, e);
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+	}
+
+	@GET
+	@Path("/user/findUsersWithPermission/{permission}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public Map<String, User> findUsersWithPermission(
+			@PathParam("permission") String permission) {
+
+		Map<String, User> userWorkgroupMap = new HashMap<String, User>();
+
+		try {
+			List<Profile> profiles = profileService
+					.findProfileWithPermission(permission);
+
+			for (Profile profile : profiles) {
+				try {
+					List<User> users = userService
+							.findUsersWithWorkgroup(profile.getCuaProfileName());
+					for (User user : users) {
+						userWorkgroupMap.put(user.getUid(), user);
+					}
+				} catch (Exception e) {
+					LOGGER.info("Unable to fetch users for profile "
+							+ profile.getCuaProfileName());
+				}
+			}
+
+			return userWorkgroupMap;
+		} catch (Exception e) {
+			LOGGER.error("Exception fetching users with permission: "
+					+ permission, e);
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
 	}
