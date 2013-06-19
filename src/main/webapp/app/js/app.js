@@ -1,10 +1,11 @@
 define([
 	'angular',
 	'dependencyResolverFor',
-	'angularResource',
+	'ngResource',
 	'filters',
 	'services',
 	'directives',
+	'services/PermissionsFactory',
 	'controllers',
 	'controllers/PermissionController',
 	'controllers/CreatePermissionController',

@@ -1,6 +1,9 @@
-define(['angular'], function (angular) {
+define(['angular','ngResource'], function (angular,ngResource) {
 	'use strict';
 	
-	angular.module('cuaApp.services', [])
-		.value('version', '0.1');
+	var servicesModule = angular.module('cuaApp.services', ['ngResource']);
+
+	servicesModule.value('version', '0.1');
+
+	return servicesModule;
 });

@@ -1,24 +1,11 @@
 'use strict';
 
-define(['controllers','services'], function(controllers,services) {
+define(['controllers','services','services/PermissionsFactory'], function(controllers,services,PermissionsFactory) {
 
-	controllers.controller('PermissionController', ['$scope', '$http', function($scope, $http) {
+	controllers.controller('PermissionController', ['$scope', '$http', 'PermissionsFactory', 
+		function($scope, $http, PermissionsFactory) {
 
-	$scope.url = 'http://localhost:8080/JerseyTest/rest/ldap/permission/all';
-
-	$scope.search = function() {
-		console.log('search invoked');
-		$http.get($scope.url).success(function(data, status) {
-			$scope.status = status;
-			$scope.permissions = data;
-
-		}).error(function(data, status) {
-			$scope.data = data || "Request failed";
-			$scope.status = status;
-		});
-	};
-
-	$scope.search();
+			$scope.permissions = PermissionsFactory.get();
 
 	}]);
 });
