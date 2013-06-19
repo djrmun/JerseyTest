@@ -16,6 +16,8 @@ public interface UserService {
 	void deleteUser(String uid);
 
 	void createUserFromWebPhone(String uid, String workgroup);
-	
+
 	User updateWorkGroupForUser(String uid, String workgroup) throws Exception;
+
+	List<User> findUsersWithWorkgroup(String workgroup) throws Exception;
 }

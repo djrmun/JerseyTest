@@ -10,6 +10,7 @@ import org.springframework.ldap.core.DirContextAdapter;
 import org.springframework.ldap.core.DirContextOperations;
 import org.springframework.ldap.core.DistinguishedName;
 import org.springframework.ldap.core.LdapTemplate;
+import org.springframework.ldap.filter.EqualsFilter;
 import org.springframework.ldap.filter.Filter;
 import org.springframework.ldap.filter.WhitespaceWildcardsFilter;
 import org.springframework.stereotype.Service;
@@ -62,6 +63,19 @@ public class ProfileDaoImpl implements ProfileDao {
 		Filter filter = new WhitespaceWildcardsFilter("cuaProfileName", name);
 		return ldapTemplate
 				.search(BASE_DN, filter.encode(), getContextMapper());
+	}
+
+	@Override
+	public List<Profile> findProfileWithPermission(String permission)
+			throws Exception {
+		Filter filter = new EqualsFilter("cuaPermissionName", permission.trim());
+		@SuppressWarnings("unchecked")
+		List<Profile> profiles = ldapTemplate.search(BASE_DN, filter.encode(),
+				getContextMapper());
+		if (profiles != null && profiles.size() > 0)
+			return profiles;
+		else
+			throw new Exception("Profiles not found in ldap");
 	}
 
 	protected void mapToContext(Profile profile, DirContextOperations context) {

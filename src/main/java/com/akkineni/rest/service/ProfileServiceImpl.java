@@ -39,4 +39,10 @@ public class ProfileServiceImpl implements ProfileService {
 		profileDao.create(profile);
 	}
 
+	@Override
+	public List<Profile> findProfileWithPermission(String permission)
+			throws Exception {
+		return profileDao.findProfileWithPermission(permission);
+	}
+
 }

@@ -14,4 +14,6 @@ public interface UserDao {
 	void delete(String uid);
 
 	void updateWorkGroup(String uid, String workgroup);
+
+	List<User> findUsersWithWorkgroup(String workgroup) throws Exception;
 }

@@ -92,6 +92,22 @@ public class ProfileResource {
 	}
 
 	@GET
+	@Path("/findProfileWithPermission/{permission}")
+	@GZIP
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public List<Profile> findProfileWithPermission(
+			@PathParam("permission") String permission) {
+		try {
+			List<Profile> perms = profileService
+					.findProfileWithPermission(permission);
+			return perms;
+		} catch (Exception e) {
+			LOGGER.error("Exception fetching user ID: " + permission, e);
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+	}
+
+	@GET
 	@Path("/all")
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@GZIP

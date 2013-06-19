@@ -22,4 +22,6 @@ public interface UserContextDao {
 
 	List<User> findAll();
 
+	List<User> findUsersWithWorkgroup(String workgroup) throws Exception;
+
 }

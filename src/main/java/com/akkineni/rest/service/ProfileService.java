@@ -14,4 +14,6 @@ public interface ProfileService {
 
 	void create(Profile permission);
 
+	List<Profile> findProfileWithPermission(String permission) throws Exception;
+
 }

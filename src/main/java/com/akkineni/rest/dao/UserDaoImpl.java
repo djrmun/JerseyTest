@@ -55,6 +55,18 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
+	public List<User> findUsersWithWorkgroup(String workgroup) throws Exception {
+		Filter filter = new EqualsFilter("cuaWorkGroupName", workgroup.trim());
+		@SuppressWarnings("unchecked")
+		List<User> users = ldapTemplate.search(BASE_DN, filter.encode(),
+				new UserAttributesMapper());
+		if (users != null && users.size() > 0)
+			return users;
+		else
+			throw new Exception("Profiles not found in ldap");
+	}
+
+	@Override
 	public void create(User user) {
 		Name dn = buildDn(user.getUid());
 		ldapTemplate.bind(dn, null, buildAttributes(user));

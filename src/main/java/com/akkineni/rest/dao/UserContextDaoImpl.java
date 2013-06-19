@@ -72,6 +72,18 @@ public class UserContextDaoImpl implements UserContextDao {
 			throw new Exception("User not found in ldap");
 	}
 
+	@Override
+	public List<User> findUsersWithWorkgroup(String workgroup) throws Exception {
+		Filter filter = new EqualsFilter("cuaWorkGroupName", workgroup.trim());
+		@SuppressWarnings("unchecked")
+		List<User> users = ldapTemplate.search(BASE_DN, filter.encode(),
+				getContextMapper());
+		if (users != null && users.size() > 0)
+			return users;
+		else
+			throw new Exception("Profiles not found in ldap");
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> findByName(String name) {

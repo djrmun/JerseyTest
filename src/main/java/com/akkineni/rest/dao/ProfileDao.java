@@ -16,4 +16,6 @@ public interface ProfileDao {
 
 	List<Profile> findByName(String name);
 
+	List<Profile> findProfileWithPermission(String permission) throws Exception;
+
 }

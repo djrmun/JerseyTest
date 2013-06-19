@@ -71,6 +71,21 @@ public class UserResource {
 	}
 
 	@GET
+	@Path("/user/findUsersWithWorkgroup/{workgroup}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public List<User> findUsersWithWorkgroup(
+			@PathParam("workgroup") String workgroup) {
+
+		try {
+			List<User> users = userService.findUsersWithWorkgroup(workgroup);
+			return users;
+		} catch (Exception e) {
+			LOGGER.error("Exception fetching user ID: " + workgroup, e);
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+	}
+
+	@GET
 	@Path("/user/all")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@GZIP
