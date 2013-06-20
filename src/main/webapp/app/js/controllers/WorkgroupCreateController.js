@@ -8,7 +8,7 @@ define(['controllers','services'], function(controllers,services) {
 
 	var allpermissions = [];
 
-	$scope.allPermissionsFetchUrl = 'http://localhost:8080/JerseyTest/rest/ldap/permission/all';
+	$scope.allPermissionsFetchUrl = '/JerseyTest/rest/ldap/permission/all';
 
 	function search() {
 		$http.get($scope.allPermissionsFetchUrl).success(function(data, status) {

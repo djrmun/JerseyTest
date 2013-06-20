@@ -5,7 +5,7 @@ define(['controllers','services'], function(controllers,services) {
 	controllers.controller('PermissionUsersController', ['$scope', '$http','PermissionsFactory', 
 		function($scope, $http, PermissionsFactory) {
 
-			$scope.url = 'http://localhost:8080/JerseyTest/rest/ldap/permission/all';
+			$scope.url = '/JerseyTest/rest/ldap/permission/all';
 
 			function init() {
 				console.log('search invoked');

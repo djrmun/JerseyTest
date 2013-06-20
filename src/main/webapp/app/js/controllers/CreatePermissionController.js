@@ -62,7 +62,7 @@ define(['controllers','services'], function(controllers,services) {
 		$scope.update = function(perm) {
 			$scope.master = angular.copy(perm);
 			$http.
-				post('http://localhost:8080/JerseyTest/rest/ldap/permission/create',$scope.master)
+				post('/JerseyTest/rest/ldap/permission/create',$scope.master)
 					.success(function(data, status) {
 						$scope.errorMsg = "success " + status;
 					})

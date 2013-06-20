@@ -5,7 +5,7 @@ define(['controllers','services'], function(controllers,services) {
 	controllers.controller('WorkgroupController', ['$scope', '$http', function($scope, $http) {
 
 	$scope.order = 'cuaProfileName';
-	$scope.url = 'http://localhost:8080/JerseyTest/rest/ldap/profile/all';
+	$scope.url = '/JerseyTest/rest/ldap/profile/all';
 
 	$scope.search = function() {
 		$http.get($scope.url).success(function(data, status) {

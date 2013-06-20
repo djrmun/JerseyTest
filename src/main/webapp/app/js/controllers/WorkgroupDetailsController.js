@@ -4,7 +4,7 @@ define(['controllers','services'], function(controllers,services) {
 
 	controllers.controller('WorkgroupDetailsController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
 
-	$scope.url = 'http://localhost:8080/JerseyTest/rest/ldap/profile/' + $routeParams.workgroupID;
+	$scope.url = '/JerseyTest/rest/ldap/profile/' + $routeParams.workgroupID;
 
 	$http.get($scope.url).success(function(data, status) {
 		$scope.status = status;
