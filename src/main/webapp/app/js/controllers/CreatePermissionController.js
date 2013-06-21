@@ -1,85 +1,83 @@
-'use strict';
+/*global define*/
+/*global console*/
+/*global require*/
+define(['angular', 'controllers', 'services'], function (angular, controllers, services) {
+    'use strict';
+    controllers.controller('CreatePermissionController', ['$scope', '$http', function ($scope, $http) {
+        $scope.perm = {
+            cuaPermissionName: '',
+            description : '',
+            cuaIsPortSwapPermission : false,
+            cuaEntityIsAdmin : false,
+            cuaPermissionCategory : [' ', ' ']
+        };
 
-define(['controllers','services'], function(controllers,services) {
+        console.log($scope.perm);
 
-	controllers.controller('CreatePermissionController', ['$scope', '$http', function($scope, $http) {
+        $scope.domains = [ {
+            name : 'domain_serviceorder'
+        }, {
+            name : 'domain_subscription'
+        }, {
+            name : 'domain_admin'
+        } ];
 
-		$scope.perm = {
-			cuaPermissionName: '',
-			description : '',
-			cuaIsPortSwapPermission : false ,
-			cuaEntityIsAdmin : false ,
-			cuaPermissionCategory : [' ',' ']
-		};
+        $scope.types = [ {
+            name : 'type_permission'
+        }, {
+            name : 'type_nti'
+        } ];
 
-		console.log($scope.perm);
+        function updatePermWithDomain(newValue, oldValue) {
+            console.log("updatePermWithDomain invoked");
+            if (newValue) {
+                if ($scope.perm.cuaPermissionCategory) {
+                    $scope.perm.cuaPermissionCategory[0] = newValue.name;
+                }
+            } else {
+                console.log("newvalue is undefined");
+            }
+        }
 
-		$scope.domains = [ {
-			name : 'domain_serviceorder'
-		}, {
-			name : 'domain_subscription'
-		}, {
-			name : 'domain_admin'
-		} ];
+        $scope.$watch('selectedDomain', updatePermWithDomain);
 
-		$scope.types = [ {
-			name : 'type_permission'
-		}, {
-			name : 'type_nti'
-		} ];
+        function updatePermWithType(newValue, oldValue) {
+            if (newValue) {
+                if ($scope.perm.cuaPermissionCategory) {
+                    $scope.perm.cuaPermissionCategory[1] = newValue.name;
+                } else {
+                    console.log("permissions category type not defined");
+                }
+            } else {
+                console.log("new type is undefined");
+            }
+        }
 
-		function updatePermWithDomain(newValue,oldValue){
-			console.log("updatePermWithDomain invoked");
-			if(newValue){
-				if($scope.perm.cuaPermissionCategory)
-					$scope.perm.cuaPermissionCategory[0] = newValue.name;
-				else
-					console.log("permissions category array not defined");
-			}else{
-				console.log("newvalue is undefined");
-			}		
-		};
+        $scope.$watch('selectedType', updatePermWithType);
 
-		$scope.$watch('selectedDomain',updatePermWithDomain);
+        $scope.master = {};
 
-		function updatePermWithType(newValue,oldValue){
-			if(newValue){
-				if($scope.perm.cuaPermissionCategory)
-					$scope.perm.cuaPermissionCategory[1] = newValue.name;
-				else
-					console.log("permissions category type not definesd");
-			}else{
-				console.log("new type is undefrined");
-			}
-			
-			console.log("updatePermWithType invoked");
-		};
+        $scope.update = function (perm) {
+            $scope.master = angular.copy(perm);
+            $http.
+                post('/JerseyTest/rest/ldap/permission/create', $scope.master)
+                .success(function (data, status) {
+                    $scope.errorMsg = "success " + status;
+                })
+                .error(function (data, status) {
+                    $scope.errorMsg = "No Doughnut for you :) " + status;
+                });
+        };
 
-		$scope.$watch('selectedType',updatePermWithType);
+        $scope.reset = function () {
+            $scope.perm = {
+                cuaPermissionName: '',
+                description : '',
+                cuaIsPortSwapPermission : false,
+                cuaEntityIsAdmin : false,
+                cuaPermissionCategory : [' ', ' ']
+            };
+        };
 
-		$scope.master = {};
-
-		$scope.update = function(perm) {
-			$scope.master = angular.copy(perm);
-			$http.
-				post('/JerseyTest/rest/ldap/permission/create',$scope.master)
-					.success(function(data, status) {
-						$scope.errorMsg = "success " + status;
-					})
-					.error(function(data, status) {
-						$scope.errorMsg = "No Doughnut for you :) " + status;
-				});
-		};
-
-		$scope.reset = function() {
-			$scope.perm = {
-				cuaPermissionName: '',
-				description : '',
-				cuaIsPortSwapPermission : false ,
-				cuaEntityIsAdmin : false ,
-				cuaPermissionCategory : [' ',' ']
-			};
-		};
-
-	}]);
+    }]);
 });
