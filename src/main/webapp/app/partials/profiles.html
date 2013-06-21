@@ -1,0 +1,18 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">
+			<!--Sidebar content-->
+			<button type="submit" class="btn" ng-click="search()">Fetch
+				Profiles</button>
+		</div>
+		<div class="span10">
+			<div ng-repeat="prof in profiles|orderBy:cuaProfileName" class="thumbnail">
+			<span>{{prof.cuaProfileName}}</span>
+			<ul>
+				<li ng-repeat="perm in prof.cuaPermissionName|orderBy:cuaPermissionName">
+					{{perm}}</li>
+			</ul>
+			</div>		
+		</div>
+	</div>
+</div>

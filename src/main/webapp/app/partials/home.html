@@ -1,0 +1,16 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">
+			<ul class="nav nav-list">
+  				<li class="active"><a href="#/home"><i class="icon-home"></i> Home</a></li>
+  				<li><a href="#/permissions"><i class="i"></i> Permissions</a></li>
+  			</ul>			
+		</div>
+		<div class="span10">
+			<ul class="phones">
+				<li ng-repeat="perm in permissions|filter:name" class="thumbnail">
+					{{perm.cuaPermissionName}}</li>
+			</ul>
+		</div>
+	</div>
+</div>

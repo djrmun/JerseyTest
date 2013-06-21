@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+http://www.springframework.org/schema/batch
+http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+	<batch:job-repository id="jobRepository"
+		data-source="h2dataSource" transaction-manager="transactionManager" />
+
+	<bean id="jobLauncher"
+		class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+		<property name="jobRepository" ref="jobRepository" />
+	</bean>
+
+	<!-- BoneCP configuration -->
+	<bean id="h2dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="org.h2.Driver" />
+		<property name="jdbcUrl"
+			value="jdbc:h2:tcp://localhost/mem:cua;DB_CLOSE_DELAY=-1" />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
+		<property name="maxConnectionsPerPartition" value="15" />
+		<property name="minConnectionsPerPartition" value="10" />
+		<property name="partitionCount" value="2" />
+		<property name="statementsCacheSize" value="100" />
+	</bean>
+
+	<!-- <bean id="h2dataSource" class="org.springframework.jdbc.datasource.SingleConnectionDataSource"> 
+		<property name="driverClassName" value="org.h2.Driver" /> <property name="url" 
+		value="jdbc:h2:tcp://localhost/mem:cua" /> <property name="username" value="sa" 
+		/> <property name="password" value="" /> <property name="suppressClose" value="true" 
+		/> </bean> -->
+	<jdbc:initialize-database data-source="h2dataSource">
+		<jdbc:script location="classpath:/org/springframework/batch/core/schema-h2.sql" />
+	</jdbc:initialize-database>
+
+	<!-- <jdbc:embedded-database id="h2dataSource" type="H2"> <jdbc:script location="classpath:/org/springframework/batch/core/schema-h2.sql" 
+		/> </jdbc:embedded-database> -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="h2dataSource" />
+	</bean>
+</beans>
