@@ -2,7 +2,7 @@
 /*global console*/
 /*global require*/
 
-define(['angular', 'controllers', 'services'], function (angular, controllers, services) {
+define(['angular', 'controllers'], function (angular, controllers) {
 
     'use strict';
 

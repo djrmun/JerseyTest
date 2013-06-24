@@ -2,7 +2,7 @@
 define(['angular', 'services'], function (angular, services) {
     'use strict';
     Array.prototype.getUnique = function () {
-        var u = {}, unique = [], i = 0, domainprefix = '';
+        var u = {}, unique = [], i, domainprefix = '';
         for (i = 0; i < this.length; i += 1) {
             domainprefix = this[i].split('.')[0];
             if (domainprefix === "commontopology") {

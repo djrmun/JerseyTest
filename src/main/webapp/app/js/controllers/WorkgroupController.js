@@ -2,7 +2,7 @@
 /*global console*/
 /*global require*/
 
-define(['controllers', 'services'], function (controllers, services) {
+define(['controllers'], function (controllers) {
     'use strict';
     controllers.controller('WorkgroupController', ['$scope', '$http', function ($scope, $http) {
         $scope.order = 'cuaProfileName';

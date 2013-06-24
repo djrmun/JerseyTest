@@ -1,6 +1,7 @@
 /*global define*/
 /*global console*/
 /*global require*/
+
 define(['controllers', 'services'], function (controllers, services) {
     'use strict';
     controllers.controller('PermissionUsersController', ['$scope', '$http', 'PermissionsFactory',

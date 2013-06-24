@@ -2,7 +2,7 @@
 /*global console*/
 /*global require*/
 
-define(['services', 'angular', 'ngResource'], function (services, angular, ngResource) {
+define(['services', 'ngResource'], function (services, ngResource) {
     'use strict';
     services.factory('PermissionsFactory', ['$http', '$q', '$resource', function ($http, $q, $resource) {
         var baseUrl = '/JerseyTest/rest/ldap/permission';

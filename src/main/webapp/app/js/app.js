@@ -16,7 +16,7 @@ define([
     'controllers/WorkgroupDetailsController',
     'controllers/WorkgroupCreateController',
     'controllers/PermissionUsersController'],
-    function (angular, dependencyResolverFor) {
+    function (angular) {
         'use strict';
         console.log('Creating Application Module cuaApp');
         var appModule =  angular.module('cuaApp', ['ngResource', 'cuaApp.controllers', 'cuaApp.filters', 'cuaApp.services', 'cuaApp.directives']);

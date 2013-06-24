@@ -5,7 +5,7 @@ define([], function () {
     'use strict';
     return function (dependencies) {
         console.log('dependencies: ' + dependencies);
-        var definition = {
+        return {
             resolver: ['$q', '$rootScope', function ($q, $rootScope) {
                 var deferred = $q.defer();
                 require(dependencies, function () {
@@ -17,6 +17,5 @@ define([], function () {
                 return deferred.promise;
             }]
         };
-        return definition;
     };
 });
