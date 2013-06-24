@@ -1,10 +1,17 @@
 /*global define*/
 /*global console*/
 /*global require*/
-define(['controllers', 'services', 'services/PermissionsFactory'], function (controllers, services, PermissionsFactory) {
+define(['controllers', 'services/PermissionsFactory'], function (controllers, PermissionsFactory) {
     'use strict';
     controllers.controller('PermissionController', ['$scope', '$http', 'PermissionsFactory',
         function ($scope, $http, PermissionsFactory) {
-            $scope.permissions = PermissionsFactory.get();
+            var promise = PermissionsFactory.get();
+            promise.then(function (data) {
+                $scope.permissions = data;
+            }, function (data) {
+                console.log(data);
+                $scope.permissions = [];
+            });
+
         }]);
 });

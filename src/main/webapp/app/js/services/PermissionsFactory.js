@@ -4,9 +4,21 @@
 
 define(['services', 'angular', 'ngResource'], function (services, angular, ngResource) {
     'use strict';
-    services.factory('PermissionsFactory', ['$http', '$resource', function ($http, $resource) {
-        return $resource('/JerseyTest/rest/ldap/permission/all', {}, {
-            get: {method: 'GET', isArray : true}
-        });
+    services.factory('PermissionsFactory', ['$http', '$q', '$resource', function ($http, $q, $resource) {
+        var baseUrl = '/JerseyTest/rest/ldap/permission';
+        return {
+            get: function () {
+                var deferred = $q.defer();
+                $http
+                    .get(baseUrl + '/all')
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (data) {
+                        deferred.reject(data);
+                    });
+                return deferred.promise;
+            }
+        };
     }]);
 });
