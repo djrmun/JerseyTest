@@ -6,15 +6,15 @@ import java.util.logging.Logger;
 
 import javax.ws.rs.core.Application;
 
-public class AkkiRestApplicaton extends Application {
+public class RestApplicatonFactory extends Application {
 
-	private final Logger LOGGER = Logger.getLogger(AkkiRestApplicaton.class
+	private final Logger LOGGER = Logger.getLogger(RestApplicatonFactory.class
 			.getName());
 
 	private Set<Object> singletons = new HashSet<Object>();
 	private Set<Class<?>> classSet = new HashSet<Class<?>>();
 
-	public AkkiRestApplicaton() {
+	public RestApplicatonFactory() {
 		super();
 		LOGGER.info("created AKKIRESTAPPLICATION");
 	}
