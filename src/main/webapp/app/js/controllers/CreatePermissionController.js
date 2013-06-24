@@ -1,9 +1,9 @@
 /*global define*/
 /*global console*/
 /*global require*/
-define(['angular', 'controllers', 'services'], function (angular, controllers, services) {
+define(['angular', 'controllers'], function (angular, controllers) {
     'use strict';
-    controllers.controller('CreatePermissionController', ['$scope', '$http', function ($scope, $http) {
+    controllers.controller('CreatePermissionController', ['$scope', '$http', 'PermissionsFactory', function ($scope, $http, PermissionsFactory) {
         $scope.perm = {
             cuaPermissionName: '',
             description : '',
@@ -35,7 +35,7 @@ define(['angular', 'controllers', 'services'], function (angular, controllers, s
                     $scope.perm.cuaPermissionCategory[0] = newValue.name;
                 }
             } else {
-                console.log("newvalue is undefined");
+                console.log("new value is undefined");
             }
         }
 
@@ -58,15 +58,16 @@ define(['angular', 'controllers', 'services'], function (angular, controllers, s
         $scope.master = {};
 
         $scope.update = function (perm) {
-            $scope.master = angular.copy(perm);
-            $http.
-                post('/JerseyTest/rest/ldap/permission/create', $scope.master)
-                .success(function (data, status) {
-                    $scope.errorMsg = "success " + status;
-                })
-                .error(function (data, status) {
-                    $scope.errorMsg = "No Doughnut for you :) " + status;
-                });
+            angular.copy(perm, $scope.master);
+
+            var promise = PermissionsFactory.save($scope.master);
+            promise.then(function (result) {
+                $scope.errorMsg = "success " + result.status;
+                console.log(result);
+            }, function (result) {
+                $scope.errorMsg = "No Doughnut for you :) " + result.status;
+                console.log(result);
+            });
         };
 
         $scope.reset = function () {

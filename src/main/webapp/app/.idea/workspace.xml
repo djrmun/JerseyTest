@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e640d85-b614-4816-be99-bb903f570b60" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/CreatePermissionController.js" afterPath="$PROJECT_DIR$/js/controllers/CreatePermissionController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/PermissionController.js" afterPath="$PROJECT_DIR$/js/controllers/PermissionController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/PermissionsFactory.js" afterPath="$PROJECT_DIR$/js/services/PermissionsFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -16,9 +14,9 @@
     <file path="/filters.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1371809257487" ignored="false" />
     <file path="/main.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1371809491951" ignored="false" />
     <file path="/routes.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1371809776208" ignored="false" />
-    <file path="/PermissionsFactory.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372098104887" ignored="false" />
-    <file path="/CreatePermissionController.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1371810521571" ignored="false" />
-    <file path="/PermissionController.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372098529882" ignored="false" />
+    <file path="/PermissionsFactory.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372101063900" ignored="false" />
+    <file path="/CreatePermissionController.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372100574890" ignored="false" />
+    <file path="/PermissionController.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372100977981" ignored="false" />
     <file path="/PermissionUsersController.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1371811201456" ignored="false" />
     <file path="/WorkgroupCreateController.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1371814500242" ignored="false" />
     <file path="/profiles.html" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1371814747633" ignored="false" />
@@ -44,8 +42,19 @@
       <file leaf-file-name="createpermission.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partials/createpermission.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="41" selection-start="1183" selection-end="1183" vertical-scroll-proportion="-15.692307">
+            <state line="7" column="58" selection-start="373" selection-end="373" vertical-scroll-proportion="-4.576923">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreatePermissionController.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/controllers/CreatePermissionController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="40" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.7614796">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,7 +73,7 @@
       <file leaf-file-name="PermissionsFactory.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/services/PermissionsFactory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="28" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0">
+            <state line="11" column="60" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -72,19 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="permissions.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/partials/permissions.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="16" selection-start="755" selection-end="755" vertical-scroll-proportion="0.4850843">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PermissionController.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controllers/PermissionController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="42" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
+            <state line="7" column="57" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -147,7 +147,6 @@
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/routes.js" />
         <option value="$PROJECT_DIR$/js/services.js" />
-        <option value="$PROJECT_DIR$/js/controllers/CreatePermissionController.js" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
         <option value="$PROJECT_DIR$/js/controllers/PermissionUsersController.js" />
         <option value="$PROJECT_DIR$/js/controllers/ProfileController.js" />
@@ -155,8 +154,9 @@
         <option value="$PROJECT_DIR$/js/controllers/WorkgroupCreateController.js" />
         <option value="$PROJECT_DIR$/partials/profiles.html" />
         <option value="$PROJECT_DIR$/js/controllers/WorkgroupDetailsController.js" />
-        <option value="$PROJECT_DIR$/js/services/PermissionsFactory.js" />
         <option value="$PROJECT_DIR$/js/controllers/PermissionController.js" />
+        <option value="$PROJECT_DIR$/js/services/PermissionsFactory.js" />
+        <option value="$PROJECT_DIR$/js/controllers/CreatePermissionController.js" />
       </list>
     </option>
   </component>
@@ -500,14 +500,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/CreatePermissionController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="55" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/ProfileController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="55" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="55" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/WorkgroupCreateController.js">
@@ -558,16 +557,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partials/createpermission.html">
+    <entry file="file://$PROJECT_DIR$/partials/permissions.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="41" selection-start="1183" selection-end="1183" vertical-scroll-proportion="-15.692307">
+        <state line="4" column="58" selection-start="152" selection-end="152" vertical-scroll-proportion="0.08819715">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/services/PermissionsFactory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="28" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0">
+        <state line="11" column="60" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -576,17 +575,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/PermissionController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="42" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
+        <state line="7" column="57" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partials/permissions.html">
+    <entry file="file://$PROJECT_DIR$/partials/createpermission.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="16" selection-start="755" selection-end="755" vertical-scroll-proportion="0.4850843">
+        <state line="7" column="58" selection-start="373" selection-end="373" vertical-scroll-proportion="-4.576923">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/CreatePermissionController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="40" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.7614796">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

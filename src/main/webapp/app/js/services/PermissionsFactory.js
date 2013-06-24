@@ -8,6 +8,7 @@ define(['services', 'angular', 'ngResource'], function (services, angular, ngRes
         var baseUrl = '/JerseyTest/rest/ldap/permission';
         return {
             get: function () {
+                /*
                 var deferred = $q.defer();
                 $http
                     .get(baseUrl + '/all')
@@ -18,6 +19,11 @@ define(['services', 'angular', 'ngResource'], function (services, angular, ngRes
                         deferred.reject(data);
                     });
                 return deferred.promise;
+                */
+                return $http.get(baseUrl + '/all');
+            },
+            save: function (newPermission) {
+                return $http.post(baseUrl + '/create', newPermission);
             }
         };
     }]);
