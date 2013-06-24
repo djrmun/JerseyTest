@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e640d85-b614-4816-be99-bb903f570b60" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../.project" afterPath="$PROJECT_DIR$/../../../../.project" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/PermissionUsersController.js" afterPath="$PROJECT_DIR$/js/controllers/PermissionUsersController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/PermissionsFactory.js" afterPath="$PROJECT_DIR$/js/services/PermissionsFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/ProfileController.js" afterPath="$PROJECT_DIR$/js/controllers/ProfileController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/WorkgroupController.js" afterPath="$PROJECT_DIR$/js/controllers/WorkgroupController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/WorkgroupCreateController.js" afterPath="$PROJECT_DIR$/js/controllers/WorkgroupCreateController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/dependencyResolverFor.js" afterPath="$PROJECT_DIR$/js/dependencyResolverFor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/filters.js" afterPath="$PROJECT_DIR$/js/filters.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../.settings/org.eclipse.wst.common.component" afterPath="$PROJECT_DIR$/../../../../.settings/org.eclipse.wst.common.component" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WEB-INF/web.xml" afterPath="$PROJECT_DIR$/../WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372096344595" ignored="false" />
+    <file path="/Dummy.txt" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372107969264" ignored="false" />
     <file path="/app.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1371807817659" ignored="false" />
     <file path="/dependencyResolverFor.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372105233449" ignored="false" />
     <file path="/filters.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372105280098" ignored="false" />
@@ -49,9 +45,7 @@
         <entry file="file://$PROJECT_DIR$/js/services/PermissionsFactory.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="6" column="102" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,9 +54,7 @@
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="18" column="21" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,9 +63,7 @@
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="4" column="51" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,9 +72,7 @@
         <entry file="file://$PROJECT_DIR$/js/dependencyResolverFor.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="6" column="59" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -93,9 +81,7 @@
         <entry file="file://$PROJECT_DIR$/js/directives.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="9" column="32" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,9 +90,7 @@
         <entry file="file://$PROJECT_DIR$/js/filters.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="24" column="25" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,9 +99,7 @@
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="13" column="33" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,6 +108,15 @@
         <entry file="file://$PROJECT_DIR$/js/routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="41" column="97" selection-start="2097" selection-end="2097" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="68" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -133,10 +124,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/services.js">
+      <file leaf-file-name="PermissionUsersController.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/controllers/PermissionUsersController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="29" selection-start="291" selection-end="291" vertical-scroll-proportion="0.1706399">
+            <state line="28" column="50" selection-start="1366" selection-end="1366" vertical-scroll-proportion="0.60714287">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -170,7 +161,6 @@
         <option value="$PROJECT_DIR$/js/controllers/WorkgroupDetailsController.js" />
         <option value="$PROJECT_DIR$/js/controllers/PermissionController.js" />
         <option value="$PROJECT_DIR$/js/controllers/CreatePermissionController.js" />
-        <option value="$PROJECT_DIR$/js/controllers/PermissionUsersController.js" />
         <option value="$PROJECT_DIR$/js/controllers/ProfileController.js" />
         <option value="$PROJECT_DIR$/js/controllers/WorkgroupController.js" />
         <option value="$PROJECT_DIR$/js/controllers/WorkgroupCreateController.js" />
@@ -178,6 +168,7 @@
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/js/dependencyResolverFor.js" />
         <option value="$PROJECT_DIR$/js/filters.js" />
+        <option value="$PROJECT_DIR$/js/controllers/PermissionUsersController.js" />
       </list>
     </option>
   </component>
@@ -324,8 +315,8 @@
     <property name="options.lastSelected" value="JavaScript.Libraries" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../config.ini" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
@@ -375,8 +366,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1288" height="988" extended-state="7" />
-    <editor active="true" />
+    <frame x="-4" y="-4" width="1288" height="988" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -459,16 +450,93 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/controllers/CreatePermissionController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="48" selection-start="909" selection-end="909" vertical-scroll-proportion="0.33290815">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="30" column="48" selection-start="909" selection-end="909" vertical-scroll-proportion="0.33290815" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/PermissionController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="91" selection-start="563" selection-end="563" vertical-scroll-proportion="0.3199498">
+        <state line="15" column="91" selection-start="563" selection-end="563" vertical-scroll-proportion="0.3199498" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/ProfileController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="44" selection-start="36" selection-end="36" vertical-scroll-proportion="0.020782396" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/WorkgroupController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="21" selection-start="78" selection-end="78" vertical-scroll-proportion="0.083129585" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/WorkgroupCreateController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="63" selection-start="144" selection-end="144" vertical-scroll-proportion="0.12469438" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/WorkgroupDetailsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="43" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0867347" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services/PermissionsFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="102" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="21" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="51" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/dependencyResolverFor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="59" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="32" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/filters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="25" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="33" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="97" selection-start="2097" selection-end="2097" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="68" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -477,120 +545,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/PermissionUsersController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.06335404">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/ProfileController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="44" selection-start="36" selection-end="36" vertical-scroll-proportion="0.020782396">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/WorkgroupController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="21" selection-start="78" selection-end="78" vertical-scroll-proportion="0.083129585">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/WorkgroupCreateController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="63" selection-start="144" selection-end="144" vertical-scroll-proportion="0.12469438">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/WorkgroupDetailsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="43" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0867347">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/services/PermissionsFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="102" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="21" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="51" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/dependencyResolverFor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="59" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="32" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/filters.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="25" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="33" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="97" selection-start="2097" selection-end="2097" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="29" selection-start="291" selection-end="291" vertical-scroll-proportion="0.1706399">
+        <state line="28" column="50" selection-start="1366" selection-end="1366" vertical-scroll-proportion="0.60714287">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
