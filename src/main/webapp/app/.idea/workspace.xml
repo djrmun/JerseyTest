@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e640d85-b614-4816-be99-bb903f570b60" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/lib/angular-ui/ui-bootstrap-tpls-0.4.0.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/lib/angular-ui/ui-bootstrap-tpls-0.4.0.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/PermissionUsersController.js" afterPath="$PROJECT_DIR$/js/controllers/PermissionUsersController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/permusersreport.html" afterPath="$PROJECT_DIR$/partials/permusersreport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="8e640d85-b614-4816-be99-bb903f570b60" name="Default" comment="" />
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372350499145" ignored="false" />
@@ -133,7 +125,7 @@
       <file leaf-file-name="permusersreport.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/partials/permusersreport.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="78" selection-start="1629" selection-end="1629" vertical-scroll-proportion="0.85224277">
+            <state line="9" column="33" selection-start="452" selection-end="452" vertical-scroll-proportion="0.20184697">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -614,7 +606,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/permusersreport.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="78" selection-start="1629" selection-end="1629" vertical-scroll-proportion="0.85224277">
+        <state line="9" column="33" selection-start="452" selection-end="452" vertical-scroll-proportion="0.20184697">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
