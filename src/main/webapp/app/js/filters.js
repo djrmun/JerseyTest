@@ -1,21 +1,21 @@
 /*global define*/
-define(['angular', 'services'], function (angular, services) {
+define(['angular', 'services'], function(angular, services) {
     'use strict';
-    Array.prototype.getUnique = function () {
+    Array.prototype.getUnique = function() {
         var u = {}, unique = [], i, domainprefix = '';
         for (i = 0; i < this.length; i += 1) {
             domainprefix = this[i].split('.')[0];
-            if (domainprefix === "commontopology") {
-                domainprefix = "serviceorder";
+            if (domainprefix === 'commontopology') {
+                domainprefix = 'serviceorder';
             }
-            if (domainprefix === "alert") {
-                domainprefix = "serviceorder";
+            if (domainprefix === 'alert') {
+                domainprefix = 'serviceorder';
             }
-            if (domainprefix === "canned") {
-                domainprefix = "reports";
+            if (domainprefix === 'canned') {
+                domainprefix = 'reports';
             }
-            if (domainprefix === "mediation") {
-                domainprefix = "reports";
+            if (domainprefix === 'mediation') {
+                domainprefix = 'reports';
             }
             if (!u.hasOwnProperty(domainprefix)) {
                 unique.push(domainprefix);
@@ -27,26 +27,26 @@ define(['angular', 'services'], function (angular, services) {
     };
 
     angular.module('cuaApp.filters', ['cuaApp.services'])
-        .filter('interpolate', ['version', function (version) {
-            return function (text) {
+        .filter('interpolate', ['version', function(version) {
+            return function(text) {
                 return String(text).replace(/\%VERSION\%/mg, version);
             };
         }])
-        .filter('checkmark', function () {
-            return function (input) {
+        .filter('checkmark', function() {
+            return function(input) {
                 return input ? '\u2713' : '\u2718';
             };
         })
-        .filter('sortAlphabetically', function () {
-            return function (input) {
+        .filter('sortAlphabetically', function() {
+            return function(input) {
                 if (input) {
                     return input.sort();
                 }
                 return input;
             };
         })
-        .filter('extractDomainsForPermissions', function () {
-            return function (input) {
+        .filter('extractDomainsForPermissions', function() {
+            return function(input) {
                 if (input) {
                     return input.getUnique();
                 }

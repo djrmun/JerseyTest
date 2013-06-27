@@ -1,15 +1,15 @@
 /*global define*/
 /*global console*/
 /*global require*/
-define([], function () {
+define([], function() {
     'use strict';
-    return function (dependencies) {
+    return function(dependencies) {
         console.log('dependencies: ' + dependencies);
         return {
-            resolver: ['$q', '$rootScope', function ($q, $rootScope) {
+            resolver: ['$q', '$rootScope', function($q, $rootScope) {
                 var deferred = $q.defer();
-                require(dependencies, function () {
-                    $rootScope.$apply(function () {
+                require(dependencies, function() {
+                    $rootScope.$apply(function() {
                         console.log('promise resolved');
                         deferred.resolve();
                     });
