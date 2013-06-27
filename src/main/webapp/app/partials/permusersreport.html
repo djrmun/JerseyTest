@@ -9,10 +9,17 @@
 			</form>
 		</div>
 		<div class="span12">
-			<div class="alert alert-success">
-  				<button type="button" class="close" data-dismiss="alert">&times;</button>
-  				<strong>Success!</strong> Number of Users with permission {{selectedPermission.cuaPermissionName}}: {{users.length}}.
-			</div>
+            <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+            <div modal="showProgressBar" options="{backdropClick: false, backdropFade: true, dialogFade:true}">
+                <div class="modal-header">
+                    <h4>Processing!</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="progress progress-striped active">
+                        <div class="bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
 			<table class="table table-striped table-bordered">
               <thead>
                 <tr>

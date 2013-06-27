@@ -15,8 +15,8 @@ require.config({
             ],
         uiBootstrap:
             [
-                'lib/angular-ui/ui-bootstrap-0.4.0.min',
-                'lib/angular-ui/ui-bootstrap-0.4.0'
+                'lib/angular-ui/ui-bootstrap-tpls-0.4.0.min',
+                'lib/angular-ui/ui-bootstrap--tpls-0.4.0'
             ],
         ngResource:
             [
