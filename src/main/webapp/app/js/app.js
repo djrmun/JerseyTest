@@ -9,6 +9,7 @@ define([
     'services',
     'directives',
     'directives/DisclosurePanel',
+    'directives/ProgressBar',
     'services/PermissionsFactory',
     'controllers',
     'controllers/PermissionController',
