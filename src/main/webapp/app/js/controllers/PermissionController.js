@@ -7,6 +7,8 @@ define(['controllers'], function(controllers) {
         ['$scope', '$http', 'PermissionsFactory',
             function($scope, $http, PermissionsFactory) {
                 var promise = PermissionsFactory.get();
+                $scope.text = 'Lorem Ipsum Blah Blah';
+                $scope.title = 'Click me to expand';
                 promise
                     .then(
                     function(result) {

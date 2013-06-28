@@ -8,6 +8,7 @@ define([
     'filters',
     'services',
     'directives',
+    'directives/DisclosurePanel',
     'services/PermissionsFactory',
     'controllers',
     'controllers/PermissionController',
