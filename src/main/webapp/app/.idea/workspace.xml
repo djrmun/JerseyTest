@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e640d85-b614-4816-be99-bb903f570b60" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/directives/ProgressBar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/templates/progressbar.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/controllers/HomeController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/directives.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/home.html" afterPath="$PROJECT_DIR$/partials/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../index.html" afterPath="$PROJECT_DIR$/../index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372429208408" ignored="false" />
-    <file path="/app.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372441144609" ignored="false" />
+    <file path="/app.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372444519023" ignored="false" />
     <file path="/dependencyResolverFor.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372105233449" ignored="false" />
     <file path="/filters.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372105280098" ignored="false" />
     <file path="/main.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372344099354" ignored="false" />
@@ -27,8 +29,9 @@
     <file path="/permusersreport.html" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372443013862" ignored="false" />
     <file path="/directives.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372429967052" ignored="false" />
     <file path="/DisclosurePanel.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372440119957" ignored="false" />
-    <file path="/home.html" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372431668003" ignored="false" />
+    <file path="/home.html" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372444721388" ignored="false" />
     <file path="/ProgressBar.js" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372443599644" ignored="false" />
+    <file path="/directives.html" changelist="8e640d85-b614-4816-be99-bb903f570b60" time="1372444666063" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,24 +51,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PermissionsFactory.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/services/PermissionsFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="13" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DisclosurePanel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/directives/DisclosurePanel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="20" selection-start="218" selection-end="886" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ProgressBar.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/directives/ProgressBar.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -88,10 +73,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/partials/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="124" selection-start="105" selection-end="105" vertical-scroll-proportion="-1.9615384">
+            <state line="4" column="116" selection-start="251" selection-end="251" vertical-scroll-proportion="0.08018868">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DisclosurePanel.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/directives/DisclosurePanel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="73" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="directives.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/partials/directives.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="30" selection-start="219" selection-end="219" vertical-scroll-proportion="-3.2692308">
               <folding />
             </state>
           </provider>
@@ -106,19 +109,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PermissionUsersController.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/controllers/PermissionUsersController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="94" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="53" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
+            <state line="46" column="65" selection-start="1403" selection-end="1403" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -129,7 +123,7 @@
       <file leaf-file-name="PermissionController.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controllers/PermissionController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="95" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0">
+            <state line="18" column="85" selection-start="0" selection-end="811" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -137,10 +131,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="permusersreport.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HomeController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/controllers/HomeController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="12" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="permusersreport.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partials/permusersreport.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="92" selection-start="77" selection-end="77" vertical-scroll-proportion="0.04009434">
+            <state line="2" column="80" selection-start="77" selection-end="77" vertical-scroll-proportion="-1.3076923">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -166,8 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/controllers/WorkgroupController.js" />
-        <option value="$PROJECT_DIR$/js/controllers/WorkgroupCreateController.js" />
         <option value="$PROJECT_DIR$/js/controllers/WorkgroupDetailsController.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/controllers/PermissionUsersController.js" />
@@ -176,12 +179,14 @@
         <option value="$PROJECT_DIR$/js/services/PermissionsFactory.js" />
         <option value="$PROJECT_DIR$/js/controllers/PermissionController.js" />
         <option value="$PROJECT_DIR$/css/app.css" />
-        <option value="$PROJECT_DIR$/partials/home.html" />
         <option value="$PROJECT_DIR$/js/directives/DisclosurePanel.js" />
         <option value="$PROJECT_DIR$/partials/templates/progressbar.html" />
-        <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/js/directives/ProgressBar.js" />
         <option value="$PROJECT_DIR$/partials/permusersreport.html" />
+        <option value="$PROJECT_DIR$/js/controllers/HomeController.js" />
+        <option value="$PROJECT_DIR$/js/app.js" />
+        <option value="$PROJECT_DIR$/partials/directives.html" />
+        <option value="$PROJECT_DIR$/partials/home.html" />
       </list>
     </option>
   </component>
@@ -545,20 +550,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/lib/angular-ui/ui-bootstrap-tpls-0.4.0.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="34" selection-start="32087" selection-end="32087" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/lib/angular-ui/ui-bootstrap-0.4.0.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/lib/angular-ui/ui-bootstrap-0.4.0.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="27" selection-start="32134" selection-end="32134" vertical-scroll-proportion="0.0">
@@ -594,38 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partials/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="124" selection-start="105" selection-end="105" vertical-scroll-proportion="-1.9615384">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/directives/DisclosurePanel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="20" selection-start="218" selection-end="886" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="53" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/PermissionController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="95" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/PermissionUsersController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="94" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0">
@@ -640,15 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partials/templates/progressbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="53" selection-start="170" selection-end="170" vertical-scroll-proportion="-1.9615384">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/directives/ProgressBar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="165" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0">
@@ -660,10 +610,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/permusersreport.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="92" selection-start="77" selection-end="77" vertical-scroll-proportion="0.04009434">
+        <state line="2" column="80" selection-start="77" selection-end="77" vertical-scroll-proportion="-1.3076923">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/PermissionController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="85" selection-start="0" selection-end="811" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/HomeController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="12" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partials/templates/progressbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="53" selection-start="170" selection-end="170" vertical-scroll-proportion="-1.9615384">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="65" selection-start="1403" selection-end="1403" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/directives/DisclosurePanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="73" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partials/directives.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="30" selection-start="219" selection-end="219" vertical-scroll-proportion="-3.2692308">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partials/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="116" selection-start="251" selection-end="251" vertical-scroll-proportion="0.08018868">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -12,6 +12,7 @@ define([
     'directives/ProgressBar',
     'services/PermissionsFactory',
     'controllers',
+    'controllers/HomeController',
     'controllers/PermissionController',
     'controllers/CreatePermissionController',
     'controllers/ProfileController',
@@ -53,7 +54,7 @@ define([
                     $routeProvider
                         .when('/home', {
                             templateUrl: 'app/partials/home.html',
-                            controller: 'PermissionController'})
+                            controller: 'HomeController'})
                         .when('/permissions', {
                             templateUrl: 'app/partials/permissions.html',
                             controller: 'PermissionController'})
@@ -75,6 +76,9 @@ define([
                         .when('/permusersreport', {
                             templateUrl: 'app/partials/permusersreport.html',
                             controller: 'PermissionUsersController'})
+                        .when('/customdirective', {
+                            templateUrl: 'app/partials/directives.html',
+                            controller: 'HomeController'})
                         .otherwise({
                             redirectTo: '/home'
                         });
