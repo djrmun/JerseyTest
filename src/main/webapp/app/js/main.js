@@ -81,9 +81,7 @@ require([
     'app'
 ], function(angular, domReady, app) {
     'use strict';
-    console.log('BootStrapping application');
     domReady(function() {
-        console.log('Bootstrapping application');
         angular.bootstrap(document, [app.name]);
     });
 });

@@ -40,7 +40,7 @@ define(['controllers', 'services'], function(controllers, services) {
                     $scope.alerts.splice(index, 1);
                 };
 
-                $scope.update = function() {
+                $scope.fetch = function() {
                     $scope.showProgressBar = true;
                     $http
                         .get(baseUrl + $scope.selectedPermission.cuaPermissionName)
