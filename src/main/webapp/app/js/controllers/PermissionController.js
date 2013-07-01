@@ -13,6 +13,7 @@ define(['controllers'], function(controllers) {
                     .then(
                     function(result) {
                         $scope.permissions = result.data;
+
                     },
                     function(result) {
                         console.log(result);

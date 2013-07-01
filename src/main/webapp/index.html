@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="app/css/normalize.css">		
 		<link rel="stylesheet" href="app/css/bootstrap.css">
 		<link rel="stylesheet" href="app/css/bootstrap-responsive.css">
+		<link rel="stylesheet" href="app/css/animate.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="app/css/app.css" />
 		<script data-main="app/js/main" src="app/js/lib/require/require.js"></script>
 	</head>
@@ -60,7 +61,7 @@
 	</div>
 
 	<div class="container-fluid">
-		<div ng-view ng-animate="{enter: 'enter-animation', leave: 'leave-animation'}"></div>
+		<div ng-view ng-animate="{enter: 'animated lightSpeedIn', leave: 'animated lightSpeedOut'}"></div>
 		<hr/>
 		<footer>
 			<p>&copy; AT@T Knowledge Ventures 2013</p>
