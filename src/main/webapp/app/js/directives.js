@@ -5,7 +5,7 @@ define(['angular', 'services'], function(angular, services) {
         ['cuaApp.services']);
     directivesModule.directive('appVersion', ['version', function(version) {
         return function(scope, elm, attrs) {
-            elm.text(version);
+            elm.text(version);            
         };
     }]);
 

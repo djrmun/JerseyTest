@@ -8,6 +8,11 @@ require.config({
                 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min',
                 'lib/jquery/jquery'
             ],
+        json3:
+            [
+                'http://cdnjs.cloudflare.com/ajax/libs/json3/3.2.4/json3.min',
+                'lib/json3/json3'
+            ],
         angular:
             [
                 'http://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min',
@@ -44,7 +49,7 @@ require.config({
     baseUrl: 'app/js',
     shim: {
         'twitter': {
-            deps: ['jquery', 'underscore', 'text', 'domReady', 'modernizr']
+            deps: ['jquery', 'underscore', 'text', 'domReady', 'modernizr','json3']
         },
         'angular': {
             deps: ['modernizr', 'twitter'],

@@ -20,5 +20,6 @@ define(['controllers'], function(controllers) {
                         $scope.permissions = [];
                     }
                 );
+
             }]);
 });
