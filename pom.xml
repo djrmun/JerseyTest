@@ -10,7 +10,7 @@
 
 	<properties>
 		<org.springframework.version>3.2.2.RELEASE</org.springframework.version>
-		<org.jboss.resteasy.version>3.0-beta-5</org.jboss.resteasy.version>
+		<org.jboss.resteasy.version>3.0.1.Final</org.jboss.resteasy.version>
 	</properties>
 
 	<dependencies>
